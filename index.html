@@ -657,43 +657,37 @@
             player = new YT.Player('hero-video', {
                 videoId: '2E7-SATrKPw',
                 playerVars: {
-                    'autoplay': 1,
-                    'mute': 1, // Start muted for autoplay to work
+                    'autoplay': 0, // STOP autoplay on load
+                    'mute': 1,     // Start muted config
                     'controls': 1,
-                    'loop': 1,
-                    'playlist': '2E7-SATrKPw',
+                    'rel': 0,
                     'playsinline': 1,
-                    'rel': 0
+                    'loop': 1,
+                    'playlist': '2E7-SATrKPw'
                 },
-                events: {
-                    'onReady': onPlayerReady
-                }
+                // No onReady event to play immediately
             });
         }
 
-        function onPlayerReady(event) {
-            event.target.playVideo(); // Force play
-        }
-
-        // Global "Unmute on Interaction" Hack
-        let hasInteracted = false;
-        function unmuteHero() {
-            if (!hasInteracted && player && player.unMute) {
-                hasInteracted = true;
-                player.unMute();
+        var hasStarted = false;
+        function startVideoWithSound() {
+            if (!hasStarted && player && typeof player.playVideo === 'function') {
+                hasStarted = true;
+                player.playVideo(); // Start playing
+                player.unMute();    // Turn on sound
                 player.setVolume(100);
                 
-                // Clean up listeners
-                document.removeEventListener('click', unmuteHero);
-                document.removeEventListener('scroll', unmuteHero);
-                document.removeEventListener('touchstart', unmuteHero);
+                // Cleanup listeners
+                document.removeEventListener('click', startVideoWithSound);
+                document.removeEventListener('scroll', startVideoWithSound);
+                document.removeEventListener('touchstart', startVideoWithSound);
             }
         }
-        
-        // Listen for ANY user interaction to unmute the hero video
-        document.addEventListener('click', unmuteHero);
-        document.addEventListener('scroll', unmuteHero);
-        document.addEventListener('touchstart', unmuteHero);
+
+        // Add listeners
+        document.addEventListener('click', startVideoWithSound);
+        document.addEventListener('scroll', startVideoWithSound);
+        document.addEventListener('touchstart', startVideoWithSound);
 
 
         // 2. Timer
