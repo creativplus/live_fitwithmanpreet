@@ -10,24 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1415678120140779');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1415678120140779');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
+    /></noscript>
     <style>
         /* -----------------------------------------------------------
            ROOT & RESET
@@ -99,7 +96,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         }
 
         /* -----------------------------------------------------------
-           BUTTONS
+           BUTTONS & CTA
         ----------------------------------------------------------- */
         .btn-primary {
             background: var(--accent);
@@ -129,7 +126,30 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         }
         .btn-secondary:hover { background: rgba(0, 255, 106, 0.1); }
 
-        .section-cta { margin-top: 30px; padding: 0 10px; }
+        /* CTA INFO BLOCK */
+        .cta-info {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .cta-guarantee {
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: block;
+            letter-spacing: 0.5px;
+            opacity: 0.95;
+            margin-bottom: 4px;
+        }
+        .cta-guarantee i { color: var(--accent); margin-right: 4px; }
+        
+        .cta-seats {
+            font-size: 0.7rem; 
+            color: #888; 
+            display: block;
+        }
+        .cta-seats strong { color: #fff; }
+
+        .section-cta { margin-top: 30px; padding: 0 10px; text-align: center; }
 
         /* -----------------------------------------------------------
            HERO SECTION
@@ -222,14 +242,9 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         .check-list li { list-style: none; margin-bottom: 10px; display: flex; align-items: flex-start; font-size: 0.95rem; text-align: left; color: #e0e0e0; }
         .check-list i { color: var(--accent); margin-right: 10px; margin-top: 4px; flex-shrink: 0; }
 
-        .transform-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 25px; }
-        .transform-card img { width: 100%; border-radius: 10px 10px 0 0; border: 1px solid #333; display: block; }
-        .transform-caption { background: #111; padding: 10px; border-radius: 0 0 10px 10px; text-align: center; border: 1px solid #333; border-top: none; font-size: 0.9rem; font-weight: 700; color: #fff; }
-
         /* -----------------------------------------------------------
-           SUCCESS STORIES
+           SCROLLERS (GENERIC)
         ----------------------------------------------------------- */
-        #reviews { overflow: hidden; background: #050505; }
         .scroller-wrapper {
             width: 100%; overflow-x: auto; overflow-y: hidden;
             -webkit-overflow-scrolling: touch; scrollbar-width: none;
@@ -239,23 +254,44 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         }
         .scroller-wrapper::-webkit-scrollbar { display: none; }
         .scroller-track { display: flex; gap: 15px; padding: 10px 20px; width: max-content; }
-
-        .testimonial-vid {
-            flex-shrink: 0; width: 70vw; max-width: 260px;
-            background: #111; border-radius: 12px; padding: 6px; border: 1px solid #333;
-            transition: transform 0.3s;
-        }
-        .testimonial-vid:hover { transform: scale(1.02); z-index: 5; }
-
-        .video-container { position: relative; width: 100%; height: 420px; }
-        .testimonial-vid video { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; background: #000; pointer-events: none; }
         
-        .vid-btn { position: absolute; background: rgba(0,0,0,0.6); color: #fff; border: 1px solid var(--accent); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; backdrop-filter: blur(2px); }
-        .play-btn { top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.2rem; }
-        .mute-btn { bottom: 10px; right: 10px; width: 30px; height: 30px; border: none; font-size: 0.8rem; }
-        .video-container.playing .play-btn { opacity: 0; pointer-events: none; }
         .swipe-hint { color: #666; font-size: 0.8rem; animation: bounce-x 1.5s infinite; display: block; margin-bottom: 10px; }
         @keyframes bounce-x { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+
+        /* UNIFORM SIZING FOR SLIDER ITEMS (280px x 500px) */
+        .testimonial-vid {
+            flex-shrink: 0; 
+            width: 280px; height: 500px;
+            background: #111; border-radius: 12px; padding: 0; border: 1px solid #333;
+            transition: transform 0.3s; overflow: hidden; position: relative;
+        }
+        .testimonial-vid:hover { transform: scale(1.02); z-index: 5; }
+        .video-container { width: 100%; height: 100%; position: relative; }
+        .testimonial-vid video { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; background: #000; pointer-events: none; }
+        
+        .vid-btn { position: absolute; background: rgba(0,0,0,0.6); color: #fff; border: 1px solid var(--accent); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; backdrop-filter: blur(2px); }
+        .mute-btn { bottom: 10px; right: 10px; width: 30px; height: 30px; border: none; font-size: 0.8rem; }
+        
+        .transform-item {
+            flex-shrink: 0; 
+            width: 280px; height: 500px;
+            background: transparent; 
+            border-radius: 12px; 
+            padding: 0; 
+            border: none;
+            transition: transform 0.3s; 
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .transform-item:hover { transform: scale(1.02); }
+        .transform-item img { 
+            width: 100%; height: 100%;
+            object-fit: cover; 
+            display: block; 
+            border-radius: 12px; 
+            border: 1px solid #222;
+        }
 
         /* -----------------------------------------------------------
            PRICING SECTION
@@ -333,7 +369,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             .point-item { font-size: 1rem; padding: 10px 25px; }
             .btn-primary, .btn-secondary { width: auto; padding: 18px 60px; display: inline-block; margin: 0 10px; }
             .section-cta { text-align: center; }
-            .pain-grid, .transform-grid { grid-template-columns: repeat(3, 1fr); }
+            .pain-grid { grid-template-columns: repeat(3, 1fr); }
             #real-problem > .container > div { display: flex; gap: 20px; justify-content: center; max-width: 900px !important; }
             .problem-card { flex: 1; }
             .pricing-card { max-width: 800px; margin: 40px auto; }
@@ -365,14 +401,19 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 
                 <div class="point-item"><i class="fas fa-bolt"></i> Fast Results</div>
             </div>
+            
             <div class="video-wrapper reveal delay-200">
-                <iframe src="https://www.youtube.com/embed/2E7-SATrKPw?rel=0&modestbranding=1&controls=1" title="Coach Manpreet Transformation" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/2E7-SATrKPw?rel=0&modestbranding=1&controls=1&autoplay=1&mute=1" title="Coach Manpreet Transformation" frameborder="0" allowfullscreen></iframe>
             </div>
+            
             <div class="reveal delay-200">
                 <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary" onclick="fbq('track', 'InitiateCheckout');">Start Transformation</a>
                 
-                <p style="margin-top:10px; font-size:0.75rem; color:#888;">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</p>
-                
+                <div class="cta-info">
+                    <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
+                    <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
+                </div>
+
                 <a href="#challenge" class="btn-secondary">Tell Me More <i class="fas fa-arrow-down"></i></a>
             </div>
             <div class="trust-badges reveal delay-200">
@@ -390,14 +431,32 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 <div class="pain-card reveal delay-200"><h3><i class="fas fa-utensils"></i> Confused Diet?</h3><p>You’re tired of extreme diets and want real Indian food.</p></div>
                 <div class="pain-card reveal delay-200"><h3><i class="fas fa-battery-quarter"></i> No Motivation?</h3><p>You start motivated, but consistency always breaks.</p></div>
             </div>
-            <div class="section-cta reveal delay-200"><a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Fix This Today</a></div>
+            <div class="section-cta reveal delay-200">
+                <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Fix This Today</a>
+                <div class="cta-info">
+                    <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
+                    <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quick-reviews" style="background-color: #020202;">
+        <div class="container">
+            <h2 class="text-center text-bold uppercase reveal">They Did It, <span class="text-accent">You Can Too</span></h2>
+            <p class="swipe-hint reveal delay-100" class="text-center">Swipe <i class="fas fa-arrow-right"></i></p>
+            
+            <div class="scroller-wrapper reveal delay-200" id="topVideoWrapper">
+                <div class="scroller-track" id="topVideoTrack">
+                    </div>
+            </div>
         </div>
     </section>
 
     <section id="about-coach">
         <div class="container">
             <div class="coach-container reveal">
-                <img src="https://placehold.co/400x500/222/FFF?text=Coach+Manpreet+Photo" alt="Coach Manpreet" class="coach-img">
+                <img src="profile.png" alt="Coach Manpreet" class="coach-img" loading="lazy">
                 <div class="coach-bio text-center">
                     <h2 class="text-accent uppercase text-bold">Coach Manpreet</h2>
                     <p class="text-muted" style="font-size: 0.9rem; margin-top: 10px;">I used to be overweight, confused, and tired. After losing 25kgs, I dedicated my career to helping others.<br><br>I don't believe in starvation diets. I believe in <strong>sustainable lifestyle changes</strong> that fit your busy Indian schedule.</p>
@@ -449,7 +508,13 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 
                 <p style="margin-top:20px; font-size:0.8rem; color:#aaa;">Designed for busy Indians. Sustainable. No starvation.</p>
                 
-                <div style="margin-top: 30px;"><a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Get Access Now</a></div>
+                <div style="margin-top: 30px;">
+                    <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Get Access Now</a>
+                    <div class="cta-info">
+                        <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
+                        <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -457,23 +522,30 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
     <section id="transformations">
         <div class="container">
             <h2 class="text-center text-bold uppercase reveal">Real Results</h2>
-            <p class="text-center text-muted reveal">Average results in 30-90 days.</p>
-            <div class="transform-grid">
-                <div class="transform-card reveal delay-100"><img src="https://placehold.co/400x400/111/fff?text=Client+1+Before/After" alt="Transformation 1"><div class="transform-caption">Lost 12 Kgs in 3 Months</div></div>
-                <div class="transform-card reveal delay-200"><img src="https://placehold.co/400x400/111/fff?text=Client+2+Before/After" alt="Transformation 2"><div class="transform-caption">Inch Loss & Muscle Gain</div></div>
-                <div class="transform-card reveal delay-200"><img src="https://placehold.co/400x400/111/fff?text=Client+3+Before/After" alt="Transformation 3"><div class="transform-caption">Post-Pregnancy Fat Loss</div></div>
+            <p class="swipe-hint reveal delay-100" class="text-center">Swipe Left to See More <i class="fas fa-arrow-right"></i></p>
+            
+            <div class="scroller-wrapper reveal delay-200" id="imgWrapper">
+                <div class="scroller-track" id="imgTrack">
+                    </div>
             </div>
-            <div class="section-cta reveal delay-200"><a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">I Want Results Like These</a></div>
+
+            <div class="section-cta reveal delay-200">
+                <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">I Want Results Like These</a>
+                <div class="cta-info">
+                    <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
+                    <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="reviews">
         <div class="container">
-            <h2 class="text-center text-bold uppercase reveal">Success Stories</h2>
-            <p class="swipe-hint reveal delay-100" class="text-center">Swipe Left or Watch Auto-Scroll <i class="fas fa-arrow-right"></i></p>
+            <h2 class="text-center text-bold uppercase reveal">More Success Stories</h2>
+            <p class="swipe-hint reveal delay-100" class="text-center">Watch Auto-Scroll <i class="fas fa-arrow-right"></i></p>
             
-            <div class="scroller-wrapper reveal delay-200" id="scrollWrapper">
-                <div class="scroller-track" id="track">
+            <div class="scroller-wrapper reveal delay-200" id="btmVideoWrapper">
+                <div class="scroller-track" id="btmVideoTrack">
                     </div>
             </div>
             
@@ -517,6 +589,12 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 <div class="pricing-footer">
                     <div class="countdown">⚡ LAST FEW SEATS LEFT!</div>
                     <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">JOIN NOW @ ₹1,179</a>
+                    
+                    <div class="cta-info">
+                        <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
+                        <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
+                    </div>
+
                     <p style="color:#444; font-size: 0.75rem; margin-top: 15px;"><i class="fas fa-lock"></i> Secured by Cosmofit</p>
                 </div>
             </div>
@@ -527,16 +605,18 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         <div class="container">
             <h3 class="text-center text-bold uppercase reveal" style="margin-bottom: 25px;">Inside Our <span class="text-accent">WhatsApp Groups</span></h3>
             <div class="masonry reveal delay-200">
-                <div class="masonry-item"><img src="https://placehold.co/300x400/111/fff?text=Chat+1" alt="Proof"></div>
-                <div class="masonry-item"><img src="https://placehold.co/300x200/111/fff?text=Scale+Pic" alt="Proof"></div>
-                <div class="masonry-item"><img src="https://placehold.co/300x350/111/fff?text=Chat+2" alt="Proof"></div>
-                <div class="masonry-item"><img src="https://placehold.co/300x250/111/fff?text=Food+Pic" alt="Proof"></div>
-                <div class="masonry-item"><img src="https://placehold.co/300x380/111/fff?text=Chat+3" alt="Proof"></div>
-                <div class="masonry-item"><img src="https://placehold.co/300x220/111/fff?text=Results+Pic" alt="Proof"></div>
-                <div class="masonry-item"><img src="https://placehold.co/300x360/111/fff?text=Chat+4" alt="Proof"></div>
-                <div class="masonry-item"><img src="https://placehold.co/300x260/111/fff?text=Selfie" alt="Proof"></div>
+                <div class="masonry-item"><img src="ss1.png" alt="Proof 1" loading="lazy"></div>
+                <div class="masonry-item"><img src="ss2.png" alt="Proof 2" loading="lazy"></div>
+                <div class="masonry-item"><img src="ss3.png" alt="Proof 3" loading="lazy"></div>
+                <div class="masonry-item"><img src="ss4.png" alt="Proof 4" loading="lazy"></div>
             </div>
-            <div class="section-cta reveal delay-200"><a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Join The Team</a></div>
+            <div class="section-cta reveal delay-200">
+                <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Join The Team</a>
+                <div class="cta-info">
+                    <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
+                    <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -547,7 +627,12 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         </div>
     </footer>
 
-    <div class="sticky-cta" id="stickyCta"><a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Join Now @ ₹1,179</a></div>
+    <div class="sticky-cta" id="stickyCta">
+        <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Join Now @ ₹1,179</a>
+        <div class="cta-info" style="margin-top: 5px; line-height: 1.2;">
+            <span class="cta-guarantee" style="font-size: 0.6rem;"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
+        </div>
+    </div>
 
     <div class="popup-overlay" id="exitPopup">
         <div class="popup-content">
@@ -555,6 +640,10 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             <h2 class="text-accent uppercase">Are You Still Waiting!</h2>
             <p>Seats are filling fast. Lock your 70% discount now.</p>
             <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="closePopup()">Claim Offer</a>
+            <div class="cta-info">
+                <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
+                <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
+            </div>
         </div>
     </div>
 
@@ -581,51 +670,40 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         const enrollDisplay = document.getElementById('enroll-count');
         const enrollBox = document.getElementById('enroll-box');
 
-        // Helper to get saved count
         function getSavedEnrollment() {
             const stored = localStorage.getItem('manpreet_enrollment_data');
             const now = Date.now();
-            let count = 17; // Default start
+            let count = 17; 
 
             if (stored) {
                 const data = JSON.parse(stored);
-                // Calculate time elapsed in minutes
                 const elapsedMinutes = (now - data.timestamp) / 60000;
-                // Add 1 fake person for every 10 minutes user was away to simulate growth
                 const offlineGrowth = Math.floor(elapsedMinutes / 10);
                 count = data.count + offlineGrowth;
             } else {
-                // Initialize if new visitor
                 localStorage.setItem('manpreet_enrollment_data', JSON.stringify({ count: 17, timestamp: now }));
             }
             return count;
         }
 
-        // Initialize Display
         let currentEnrolled = getSavedEnrollment();
         enrollDisplay.innerText = currentEnrolled;
 
-        // Function to increase live
         function increaseEnrollment() {
             currentEnrolled++;
             enrollDisplay.innerText = currentEnrolled;
             
-            // Animation
             enrollBox.classList.add('updated');
             setTimeout(() => enrollBox.classList.remove('updated'), 500);
 
-            // Save new state
             localStorage.setItem('manpreet_enrollment_data', JSON.stringify({ 
                 count: currentEnrolled, 
                 timestamp: Date.now() 
             }));
 
-            // Random delay between 8 and 15 seconds for realism
             const nextUpdate = Math.floor(Math.random() * (15000 - 8000 + 1) + 8000);
             setTimeout(increaseEnrollment, nextUpdate);
         }
-        
-        // Start the live loop
         setTimeout(increaseEnrollment, 5000);
 
         // 3. Reveal Logic
@@ -648,72 +726,117 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         function showPopup() { popup.style.display = 'flex'; popupShown = true; }
         function closePopup() { popup.style.display = 'none'; }
 
-        // 5. HYBRID SCROLL ENGINE
-        const wrapper = document.getElementById('scrollWrapper');
-        const track = document.getElementById('track');
+        // 5. HYBRID SCROLL ENGINE - MULTIPLE SLIDERS
         
-        let vidHTML = '';
-        for(let i=1; i<=12; i++) {
-            vidHTML += `
+        // --- DATA GENERATION ---
+        
+        // A. TOP VIDEOS (ssv1 - ssv5)
+        let topVidHTML = '';
+        for(let i=1; i<=5; i++) {
+            topVidHTML += `
             <div class="testimonial-vid">
-                <div class="video-container" id="vid-con-${i}">
-                    <video id="vid-${i}" src="https://www.w3schools.com/html/mov_bbb.mp4" poster="https://placehold.co/250x350/222/FFF?text=Result+${i}" muted loop playsinline></video>
-                    <button class="vid-btn play-btn" onclick="playVid('${i}')"><i class="fas fa-play"></i></button>
-                    <button class="vid-btn mute-btn" onclick="muteVid('${i}', this)"><i class="fas fa-volume-mute"></i></button>
+                <div class="video-container" id="top-vid-con-${i}">
+                    <video id="top-vid-${i}" src="ssv${i}.mp4" muted loop playsinline autoplay></video>
+                    <button class="vid-btn mute-btn" onclick="muteVid('top-vid-${i}', this)"><i class="fas fa-volume-mute"></i></button>
                 </div>
             </div>`;
         }
-        track.innerHTML = vidHTML + vidHTML;
+        document.getElementById('topVideoTrack').innerHTML = topVidHTML + topVidHTML;
 
-        let scrollPos = 0;
-        let isHovered = false;
-        let isTouching = false;
-        const speed = 0.5;
-        let originalWidth = 0;
+        // B. REAL RESULTS IMAGES (RR1 - RR6)
+        let imgHTML = '';
+        for(let i=1; i<=6; i++) {
+            imgHTML += `
+            <div class="transform-item">
+                <img src="RR${i}.png" alt="Transformation ${i}" style="width:100%;">
+            </div>`;
+        }
+        document.getElementById('imgTrack').innerHTML = imgHTML + imgHTML;
 
-        window.addEventListener('load', () => {
-            originalWidth = track.scrollWidth / 2;
-        });
+        // C. BOTTOM VIDEOS (ssv6 - ssv9)
+        let btmVidHTML = '';
+        for(let i=6; i<=9; i++) {
+            btmVidHTML += `
+            <div class="testimonial-vid">
+                <div class="video-container" id="btm-vid-con-${i}">
+                    <video id="btm-vid-${i}" src="ssv${i}.mp4" muted loop playsinline autoplay></video>
+                    <button class="vid-btn mute-btn" onclick="muteVid('btm-vid-${i}', this)"><i class="fas fa-volume-mute"></i></button>
+                </div>
+            </div>`;
+        }
+        document.getElementById('btmVideoTrack').innerHTML = btmVidHTML + btmVidHTML;
 
-        function autoScrollLoop() {
-            if (!isHovered && !isTouching) {
-                scrollPos += speed;
-                if (scrollPos >= originalWidth) {
-                    scrollPos = 0;
-                }
-                wrapper.scrollLeft = scrollPos;
-            } else {
-                scrollPos = wrapper.scrollLeft;
+
+        // --- SCROLL ANIMATION CLASS ---
+        class Marquee {
+            constructor(wrapperId, trackId, speed) {
+                this.wrapper = document.getElementById(wrapperId);
+                this.track = document.getElementById(trackId);
+                this.scrollPos = 0;
+                this.speed = speed;
+                this.isHovered = false;
+                this.isTouching = false;
+                this.originalWidth = 0;
+
+                this.wrapper.addEventListener('mouseenter', () => this.isHovered = true);
+                this.wrapper.addEventListener('mouseleave', () => this.isHovered = false);
+                this.wrapper.addEventListener('touchstart', () => this.isTouching = true);
+                this.wrapper.addEventListener('touchend', () => setTimeout(() => this.isTouching = false, 1000));
+                
+                setTimeout(() => {
+                    this.originalWidth = this.track.scrollWidth / 2;
+                }, 1000);
+
+                window.addEventListener('load', () => { 
+                    this.originalWidth = this.track.scrollWidth / 2; 
+                });
+                
+                this.animate();
             }
-            requestAnimationFrame(autoScrollLoop);
-        }
-        
-        requestAnimationFrame(autoScrollLoop);
 
-        wrapper.addEventListener('mouseenter', () => isHovered = true);
-        wrapper.addEventListener('mouseleave', () => isHovered = false);
-        wrapper.addEventListener('touchstart', () => isTouching = true);
-        wrapper.addEventListener('touchend', () => {
-            setTimeout(() => isTouching = false, 1000);
-        });
-
-        function playVid(id) {
-            isHovered = true;
-            const v = document.getElementById(`vid-${id}`);
-            const c = document.getElementById(`vid-con-${id}`);
-            document.querySelectorAll('video').forEach(el => { 
-                if(el.id !== `vid-${id}`) { el.pause(); el.parentElement.classList.remove('playing'); }
-            });
-
-            if(v.paused) { v.play(); c.classList.add('playing'); } 
-            else { v.pause(); c.classList.remove('playing'); isHovered = false; }
+            animate() {
+                if (!this.isHovered && !this.isTouching) {
+                    this.scrollPos += this.speed;
+                    if (this.scrollPos >= this.originalWidth) {
+                        this.scrollPos = 0;
+                    }
+                    this.wrapper.scrollLeft = this.scrollPos;
+                } else {
+                    this.scrollPos = this.wrapper.scrollLeft;
+                }
+                requestAnimationFrame(() => this.animate());
+            }
         }
 
-        function muteVid(id, btn) {
-            const v = document.getElementById(`vid-${id}`);
+        const scroller1 = new Marquee('topVideoWrapper', 'topVideoTrack', 0.5); 
+        const scroller2 = new Marquee('imgWrapper', 'imgTrack', 0.6); 
+        const scroller3 = new Marquee('btmVideoWrapper', 'btmVideoTrack', 0.5); 
+
+        // VIDEO CONTROLS - Smart Unmute
+        function muteVid(vidId, btn) {
+            const v = document.getElementById(vidId);
             v.muted = !v.muted;
             btn.innerHTML = v.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
         }
+
+        // Global "Unmute on Interaction" Hack
+        let hasInteracted = false;
+        function unmuteAll() {
+            if (!hasInteracted) {
+                hasInteracted = true;
+                document.querySelectorAll('video').forEach(vid => {
+                    vid.muted = false;
+                    // Note: Browsers may still block this if it's not a direct click on the video, 
+                    // but this is the most aggressive "unmuted" attempt possible.
+                });
+                // Update buttons to reflect state
+                document.querySelectorAll('.mute-btn').forEach(btn => {
+                    btn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                });
+            }
+        }
+        document.addEventListener('click', unmuteAll, { once: true });
+        document.addEventListener('touchstart', unmuteAll, { once: true });
 
         if(window.innerWidth > 768) {
             document.querySelectorAll('.desktop-only').forEach(el => el.style.display = 'flex');
@@ -742,4 +865,3 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
     </script>
 </body>
 </html>
-
