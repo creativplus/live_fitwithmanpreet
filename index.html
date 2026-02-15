@@ -651,43 +651,58 @@
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
-        // 1. YouTube API Logic (Smart Unmute)
+        // 1. YouTube API Logic (Smart Interaction Trigger)
         var player;
+        var playerReady = false;
+        var videoStarted = false;
+
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('hero-video', {
                 videoId: '2E7-SATrKPw',
                 playerVars: {
-                    'autoplay': 0, // STOP autoplay on load
-                    'mute': 1,     // Start muted config
+                    'autoplay': 0, 
                     'controls': 1,
                     'rel': 0,
                     'playsinline': 1,
                     'loop': 1,
-                    'playlist': '2E7-SATrKPw'
+                    'playlist': '2E7-SATrKPw',
+                    'mute': 0 // We want it unmuted when it starts
                 },
-                // No onReady event to play immediately
+                events: {
+                    'onReady': onPlayerReady
+                }
             });
         }
 
-        var hasStarted = false;
-        function startVideoWithSound() {
-            if (!hasStarted && player && typeof player.playVideo === 'function') {
-                hasStarted = true;
-                player.playVideo(); // Start playing
-                player.unMute();    // Turn on sound
-                player.setVolume(100);
+        function onPlayerReady(event) {
+            playerReady = true;
+        }
+
+        // Global "Start & Unmute on First Interaction" Function
+        function startHeroVideo() {
+            // Only run if player is ready and we haven't started yet
+            if (playerReady && !videoStarted && player) {
+                videoStarted = true;
+                player.playVideo();
+                // Ensure audio is on
+                if(typeof player.unMute === 'function') {
+                    player.unMute();
+                    player.setVolume(100);
+                }
                 
-                // Cleanup listeners
-                document.removeEventListener('click', startVideoWithSound);
-                document.removeEventListener('scroll', startVideoWithSound);
-                document.removeEventListener('touchstart', startVideoWithSound);
+                // Remove listeners immediately so it doesn't trigger again
+                document.removeEventListener('click', startHeroVideo);
+                document.removeEventListener('scroll', startHeroVideo);
+                document.removeEventListener('touchstart', startHeroVideo);
+                document.removeEventListener('keydown', startHeroVideo);
             }
         }
 
-        // Add listeners
-        document.addEventListener('click', startVideoWithSound);
-        document.addEventListener('scroll', startVideoWithSound);
-        document.addEventListener('touchstart', startVideoWithSound);
+        // Add listeners for ANY user interaction
+        document.addEventListener('click', startHeroVideo);
+        document.addEventListener('scroll', startHeroVideo);
+        document.addEventListener('touchstart', startHeroVideo);
+        document.addEventListener('keydown', startHeroVideo);
 
 
         // 2. Timer
