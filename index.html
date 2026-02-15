@@ -403,7 +403,7 @@
             </div>
             
             <div class="video-wrapper reveal delay-200">
-                <iframe src="https://www.youtube.com/embed/2E7-SATrKPw?rel=0&modestbranding=1&controls=1&autoplay=1&mute=1" title="Coach Manpreet Transformation" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/2E7-SATrKPw?rel=0&modestbranding=1&controls=1&autoplay=1&mute=0" allow="autoplay; encrypted-media" title="Coach Manpreet Transformation" frameborder="0" allowfullscreen></iframe>
             </div>
             
             <div class="reveal delay-200">
@@ -748,7 +748,7 @@
         for(let i=1; i<=6; i++) {
             imgHTML += `
             <div class="transform-item">
-                <img src="RR${i}.png" alt="Transformation ${i}" style="width:100%;">
+                <img src="RR${i}.png" alt="Transformation ${i}" style="width:100%;" loading="lazy">
             </div>`;
         }
         document.getElementById('imgTrack').innerHTML = imgHTML + imgHTML;
@@ -812,31 +812,12 @@
         const scroller2 = new Marquee('imgWrapper', 'imgTrack', 0.6); 
         const scroller3 = new Marquee('btmVideoWrapper', 'btmVideoTrack', 0.5); 
 
-        // VIDEO CONTROLS - Smart Unmute
+        // VIDEO CONTROLS - Simplified (Only Mute)
         function muteVid(vidId, btn) {
             const v = document.getElementById(vidId);
             v.muted = !v.muted;
             btn.innerHTML = v.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
         }
-
-        // Global "Unmute on Interaction" Hack
-        let hasInteracted = false;
-        function unmuteAll() {
-            if (!hasInteracted) {
-                hasInteracted = true;
-                document.querySelectorAll('video').forEach(vid => {
-                    vid.muted = false;
-                    // Note: Browsers may still block this if it's not a direct click on the video, 
-                    // but this is the most aggressive "unmuted" attempt possible.
-                });
-                // Update buttons to reflect state
-                document.querySelectorAll('.mute-btn').forEach(btn => {
-                    btn.innerHTML = '<i class="fas fa-volume-up"></i>';
-                });
-            }
-        }
-        document.addEventListener('click', unmuteAll, { once: true });
-        document.addEventListener('touchstart', unmuteAll, { once: true });
 
         if(window.innerWidth > 768) {
             document.querySelectorAll('.desktop-only').forEach(el => el.style.display = 'flex');
