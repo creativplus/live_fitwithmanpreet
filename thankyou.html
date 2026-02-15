@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Squad | Payment Successful</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1415678120140779');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <style>
+        /* -----------------------------------------------------------
+           ROOT & RESET
+        ----------------------------------------------------------- */
+        :root {
+            --bg-color: #050505;
+            --text-main: #ffffff;
+            --text-muted: #b3b3b3;
+            --accent: #00FF6A; /* Neon Green */
+            --accent-glow: rgba(0, 255, 106, 0.6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#222 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            color: var(--text-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* -----------------------------------------------------------
+           UTILITIES
+        ----------------------------------------------------------- */
+        .container { width: 90%; max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+        .text-center { text-align: center; }
+        .text-accent { color: var(--accent); }
+        .uppercase { text-transform: uppercase; }
+        .text-bold { font-weight: 800; }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+            font-weight: 800;
+            padding: 18px 30px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 20px var(--accent-glow);
+            border: none; cursor: pointer;
+            transition: transform 0.2s;
+            width: 100%;
+            max-width: 350px;
+            font-size: 1rem;
+        }
+        .btn-primary:hover { transform: scale(1.02); box-shadow: 0 0 30px var(--accent-glow); }
+
+        .btn-secondary {
+            background: transparent; border: 1px solid #333;
+            color: #fff; padding: 15px 30px; border-radius: 50px;
+            font-weight: 600; text-decoration: none; display: inline-block;
+            margin-top: 15px; font-size: 0.9rem; transition: all 0.3s;
+        }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* -----------------------------------------------------------
+           SUCCESS SPECIFIC STYLES
+        ----------------------------------------------------------- */
+        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.4; pointer-events: none; }
+
+        .success-card {
+            background: #0f0f0f;
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 40px 20px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Checkmark */
+        .checkmark-circle {
+            width: 80px; height: 80px; position: relative; display: inline-block;
+            vertical-align: top; margin-bottom: 20px;
+        }
+        .checkmark-circle .background {
+            width: 80px; height: 80px; border-radius: 50%; background: #003315;
+            position: absolute; border: 2px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .checkmark-circle .checkmark {
+            border-radius: 5px; transform: rotate(45deg); position: absolute;
+            left: 28px; top: 48px; width: 24px; height: 44px;
+            border-bottom: 4px solid var(--accent);
+            border-right: 4px solid var(--accent);
+            margin-top: -30px; animation: checkmark-anim 0.8s ease backwards 0.3s;
+        }
+        @keyframes checkmark-anim { 0% { height: 0; width: 0; opacity: 0; } 40% { height: 0; width: 24px; opacity: 1; } 100% { height: 44px; width: 24px; opacity: 1; } }
+
+        /* Steps Timeline */
+        .steps-container { margin-top: 40px; text-align: left; }
+        .step-item {
+            display: flex; gap: 15px; margin-bottom: 35px;
+            opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s forwards;
+            position: relative;
+        }
+        .step-number {
+            flex-shrink: 0; width: 50px; height: 50px;
+            background: #1a1a1a; border: 1px solid #333;
+            color: var(--text-muted); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1.2rem;
+            position: relative; z-index: 2;
+        }
+        .step-item.active .step-number {
+            background: var(--accent); color: #000; border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+        /* Line connecting steps */
+        .step-item:not(:last-child)::after {
+            content: ''; position: absolute; top: 50px; left: 25px; transform: translateX(-50%);
+            width: 2px; height: calc(100% - 10px); background: #222; z-index: 1;
+        }
+        
+        .step-content h4 { color: #fff; font-size: 1.1rem; margin-bottom: 5px; }
+        .step-content p { color: #888; font-size: 0.9rem; line-height: 1.4; }
+        .step-icon { font-size: 1.2rem; margin-right: 8px; color: var(--accent); }
+
+        /* Commitment Box */
+        .commitment-box {
+            background: rgba(255, 0, 0, 0.1); border: 1px solid #ff3b3b;
+            padding: 15px; border-radius: 10px; margin-top: 30px;
+            color: #ffaaaa; font-weight: 700; text-transform: uppercase;
+            font-size: 0.9rem; letter-spacing: 1px;
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(255, 59, 59, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0); } }
+
+        #confetti { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 100%; height: 100%; }
+
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        footer { text-align: center; padding: 30px; color: #444; font-size: 0.8rem; margin-top: auto; }
+        
+        @media(min-width: 768px) {
+            .success-card { padding: 60px 80px; }
+            .step-item { gap: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="confetti"></canvas>
+    <canvas id="particles-js"></canvas>
+
+    <div class="container text-center">
+        <div class="success-card">
+            
+            <div class="checkmark-circle">
+                <div class="background"></div>
+                <div class="checkmark"></div>
+            </div>
+
+            <h1 class="uppercase text-bold" style="font-size: 2rem; margin-bottom: 10px;">
+                You're <span class="text-accent">Officially In!</span>
+            </h1>
+            <p class="text-muted">Payment Successful. Welcome to the Ultimate Fitness Squad.</p>
+
+            <div style="margin: 20px auto; height: 1px; width: 50%; background: #222;"></div>
+
+            <h3 class="uppercase" style="margin-bottom: 30px; font-size: 1.2rem;">Follow These 3 Steps Now:</h3>
+            
+            <div class="steps-container">
+                
+                <div class="step-item active" style="animation-delay: 0.5s;">
+                    <div class="step-number"><i class="fab fa-telegram-plane"></i></div>
+                    <div class="step-content">
+                        <h4>Download Telegram App</h4>
+                        <p>We use Telegram for high-quality video calls and sharing large diet files. Make sure you have it installed on your phone.</p>
+                        <div style="margin-top: 10px;">
+                            <a href="https://telegram.org/dl" target="_blank" style="color: var(--accent); font-size: 0.8rem; text-decoration: underline;">Download Here</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item" style="animation-delay: 0.7s;">
+                    <div class="step-number" style="background: #25D366; color: #fff; border:none;"><i class="fab fa-whatsapp"></i></div>
+                    <div class="step-content">
+                        <h4>Check Your WhatsApp</h4>
+                        <p>I have sent you a <strong>Private Invite Link</strong> on WhatsApp. Open it to join our VIP Telegram Channel immediately.</p>
+                    </div>
+                </div>
+
+                <div class="step-item" style="animation-delay: 0.9s;">
+                    <div class="step-number" style="background: #ff3b3b; color: #fff; border:none;"><i class="fas fa-video"></i></div>
+                    <div class="step-content">
+                        <h4>Get Plan & Join Live</h4>
+                        <p>You will receive your Diet & Workout plan inside the Telegram Channel.</p>
+                        <p style="color: #fff; margin-top: 8px;"><i class="fas fa-exclamation-circle text-accent"></i> <strong>MANDATORY:</strong> You must join the <strong>Live Session Everyday</strong>.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="commitment-box reveal delay-200">
+                <i class="fas fa-fire"></i> RULE #1: STAY DAILY ACTIVE
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #222;">
+                <p style="font-size: 0.85rem; color: #666;">Didn't get the WhatsApp message? <a href="mailto:support@coachmanpreet.com" style="color: #888; text-decoration: underline;">Contact Support</a></p>
+                <a href="index.html" class="btn-secondary">Back to Home</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Coach Manpreet Fitness. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Particle Background
+        const canvas = document.getElementById("particles-js");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        let particles = [];
+        for(let i=0; i<20; i++) particles.push({
+            x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+            vx: (Math.random()-0.5)*0.5, vy: (Math.random()-0.5)*0.5, size: Math.random()*2
+        });
+        function animate() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            particles.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if(p.x<0||p.x>canvas.width) p.x=Math.random()*canvas.width;
+                if(p.y<0||p.y>canvas.height) p.y=Math.random()*canvas.height;
+                ctx.fillStyle='rgba(0,255,106,0.3)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Confetti Effect
+        const confettiCanvas = document.getElementById('confetti');
+        const cCtx = confettiCanvas.getContext('2d');
+        confettiCanvas.width = window.innerWidth; confettiCanvas.height = window.innerHeight;
+        
+        let confetti = [];
+        const colors = ['#00FF6A', '#ffffff', '#00cc55'];
+
+        function createConfetti() {
+            for(let i=0; i<100; i++) {
+                confetti.push({
+                    x: Math.random() * confettiCanvas.width,
+                    y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * 8 + 4,
+                    speed: Math.random() * 5 + 2,
+                    angle: Math.random() * 360
+                });
+            }
+        }
+
+        function drawConfetti() {
+            cCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+            confetti.forEach((p, index) => {
+                p.y += p.speed;
+                p.angle += 2;
+                cCtx.save();
+                cCtx.translate(p.x, p.y);
+                cCtx.rotate(p.angle * Math.PI / 180);
+                cCtx.fillStyle = p.color;
+                cCtx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+                cCtx.restore();
+                if(p.y > confettiCanvas.height) confetti.splice(index, 1);
+            });
+            if(confetti.length > 0) requestAnimationFrame(drawConfetti);
+        }
+
+        createConfetti();
+        drawConfetti();
+    </script>
+</body>
+</html>
+
