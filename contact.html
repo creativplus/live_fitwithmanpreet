@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | FITWITHMANPREETT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #0f0f0f;
+            --text-main: #ffffff;
+            --text-muted: #b3b3b3;
+            --accent: #00FF6A;
+            --accent-glow: rgba(0, 255, 106, 0.4);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#222 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container { width: 90%; max-width: 900px; margin: 50px auto; flex: 1; }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+        h1 { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
+        .text-accent { color: var(--accent); }
+        p.subtitle { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media(max-width: 768px) { .grid { grid-template-columns: 1fr; gap: 30px; } }
+        .info-box { background: #141414; padding: 25px; border-radius: 12px; border: 1px solid #262626; }
+        .info-box h3 { font-size: 1.1rem; margin-bottom: 15px; color: #fff; }
+        .info-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 0.9rem; color: var(--text-muted); }
+        .info-item i { color: var(--accent); font-size: 1.1rem; margin-top: 3px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
+        .form-control {
+            width: 100%; padding: 14px; background: #080808; border: 1px solid #333;
+            color: #fff; border-radius: 8px; font-size: 0.95rem; transition: all 0.3s ease;
+        }
+        .form-control:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+        textarea.form-control { resize: vertical; min-height: 120px; }
+        .btn-submit {
+            background: var(--accent); color: #000; font-weight: 800; padding: 15px 30px;
+            border-radius: 50px; text-transform: uppercase; border: none; cursor: pointer;
+            width: 100%; box-shadow: 0 0 20px var(--accent-glow); transition: transform 0.2s; font-size: 0.95rem;
+        }
+        .btn-submit:hover { transform: scale(1.02); }
+
+        /* FOOTER STYLES */
+        footer {
+            background: #080808;
+            border-top: 1px solid #1a1a1a;
+            padding: 50px 20px 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .footer-logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+        .footer-logo span {
+            color: var(--accent);
+        }
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            background: #141414;
+            border: 1px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .footer-socials a:hover {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+            transform: translateY(-3px);
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        .footer-divider {
+            width: 100%;
+            max-width: 400px;
+            height: 1px;
+            background: #222;
+            margin: 10px 0;
+        }
+        .footer-copy {
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        .footer-copy a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Let's Connect with <span class="text-accent">Our Team</span></h1>
+            <p class="subtitle">Have questions regarding your enrollment, active transformation program, or schedule? We are here to help you succeed.</p>
+            
+            <div class="grid">
+                <div>
+                    <div class="info-box">
+                        <h3>Official Business Headquarters</h3>
+                        <div class="info-item">
+                            <i class="fas fa-building"></i>
+                            <div><strong>FITWITHMANPREETT</strong><br>House No. 199, Guru Nanak Nagar, Street No. 06, Samrala Road, Khanna, Ludhiana, Punjab - 141401</div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div><strong>Primary Support Email:</strong><br><a href="mailto:Contact@fitwithmanpreett.in" style="color:var(--accent); text-decoration:none;">Contact@fitwithmanpreett.in</a></div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div><strong>Direct Helpline:</strong><br><a href="tel:+918360767176" style="color:var(--text-muted); text-decoration:none;">+91 83607 67176</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" placeholder="name@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>How can we assist you?</label>
+                            <textarea class="form-control" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Submit Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <!-- Brand Logo -->
+            <a href="index.html" class="footer-logo">FITWITH<span>MANPREETT</span></a>
+
+            <!-- Social Media Icons -->
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/fitwithmanpreett" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/19cNFfiTN3/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/918360767176" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <!-- Policy & Navigation Links -->
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="copyright.html">Copyright</a>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <!-- Copyright & Compliance Details -->
+            <div class="footer-copy">
+                <p>&copy; 2026 FITWITHMANPREETT. All Rights Reserved.</p>
+                <p>Support Contact: <a href="mailto:Contact@fitwithmanpreett.in">Contact@fitwithmanpreett.in</a> | Phone: <a href="tel:+918360767176">+91 83607 67176</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
