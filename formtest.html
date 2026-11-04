@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Welcome to the Squad | Payment Successful</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="fit-with-manpreet-favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="fit-with-manpreet-favicon.png">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -34,16 +36,19 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         :root {
             --bg-color: #050505;
             --text-main: #ffffff;
-            --text-muted: #b3b3b3;
+            --text-muted: #d0d0d0;
             --accent: #00FF6A; /* Neon Green */
-            --accent-glow: rgba(0, 255, 106, 0.6);
+            --accent-glow: rgba(0, 255, 106, 0.4);
+            --card-bg: #0d0d0d;
+            --input-bg: #0A0A0A;
+            --border-color: #222222;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; -webkit-tap-highlight-color: transparent; }
         body {
             background-color: var(--bg-color);
-            background-image: radial-gradient(#222 1.5px, transparent 1.5px);
-            background-size: 24px 24px;
+            background-image: radial-gradient(#1a1a1a 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
             color: var(--text-main);
             overflow-x: hidden;
             min-height: 100vh;
@@ -52,9 +57,9 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         }
 
         /* -----------------------------------------------------------
-            UTILITIES
+            UTILITIES & PRO MOBILE UX
         ----------------------------------------------------------- */
-        .container { width: 90%; max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+        .container { width: 94%; max-width: 680px; margin: 0 auto; position: relative; z-index: 2; padding: 15px 0; }
         .text-center { text-align: center; }
         .text-accent { color: var(--accent); }
         .uppercase { text-transform: uppercase; }
@@ -62,128 +67,134 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         
         .btn-primary {
             background: var(--accent);
-            color: #000;
+            color: #000000;
             font-weight: 800;
-            padding: 18px 30px;
+            padding: 16px 20px;
             border-radius: 50px;
             text-transform: uppercase;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 0 20px var(--accent-glow);
+            box-shadow: 0 0 25px var(--accent-glow);
             border: none; cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
             width: 100%;
-            max-width: 350px;
-            font-size: 1rem;
+            max-width: 320px;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
-        .btn-primary:hover { transform: scale(1.02); box-shadow: 0 0 30px var(--accent-glow); }
-        .btn-primary:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+        .btn-primary:active { transform: scale(0.98); }
+        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
         .btn-secondary {
             background: transparent; border: 1px solid #333;
-            color: #fff; padding: 15px 30px; border-radius: 50px;
+            color: #fff; padding: 12px 20px; border-radius: 50px;
             font-weight: 600; text-decoration: none; display: inline-block;
-            margin-top: 15px; font-size: 0.9rem; transition: all 0.3s;
+            font-size: 0.85rem; transition: all 0.3s;
         }
-        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
         /* -----------------------------------------------------------
-            SUCCESS SPECIFIC STYLES
+            CARD & PRO MOBILE LAYOUT
         ----------------------------------------------------------- */
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.4; pointer-events: none; }
+        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.35; pointer-events: none; }
 
         .success-card {
-            background: #0f0f0f;
-            border: 1px solid #222;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
-            padding: 40px 20px;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            padding: 28px 18px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.95);
             position: relative;
             overflow: hidden;
         }
 
         /* Animated Checkmark */
         .checkmark-circle {
-            width: 80px; height: 80px; position: relative; display: inline-block;
-            vertical-align: top; margin-bottom: 20px;
+            width: 68px; height: 68px; position: relative; display: inline-block;
+            vertical-align: top; margin-bottom: 12px;
         }
         .checkmark-circle .background {
-            width: 80px; height: 80px; border-radius: 50%; background: #003315;
+            width: 68px; height: 68px; border-radius: 50%; background: #002b12;
             position: absolute; border: 2px solid var(--accent);
             box-shadow: 0 0 20px var(--accent-glow);
         }
         .checkmark-circle .checkmark {
-            border-radius: 5px; transform: rotate(45deg); position: absolute;
-            left: 28px; top: 48px; width: 24px; height: 44px;
-            border-bottom: 4px solid var(--accent);
-            border-right: 4px solid var(--accent);
-            margin-top: -30px; animation: checkmark-anim 0.8s ease backwards 0.3s;
+            border-radius: 4px; transform: rotate(45deg); position: absolute;
+            left: 23px; top: 39px; width: 20px; height: 36px;
+            border-bottom: 3.5px solid var(--accent);
+            border-right: 3.5px solid var(--accent);
+            margin-top: -24px; animation: checkmark-anim 0.8s ease backwards 0.2s;
         }
-        @keyframes checkmark-anim { 0% { height: 0; width: 0; opacity: 0; } 40% { height: 0; width: 24px; opacity: 1; } 100% { height: 44px; width: 24px; opacity: 1; } }
+        @keyframes checkmark-anim { 0% { height: 0; width: 0; opacity: 0; } 40% { height: 0; width: 20px; opacity: 1; } 100% { height: 36px; width: 20px; opacity: 1; } }
 
         /* -----------------------------------------------------------
-            ONBOARDING FORM STYLES
+            ONBOARDING FORM MOBILE OPTIMIZATION
         ----------------------------------------------------------- */
         .form-container {
-            margin: 35px 0;
+            margin: 20px 0;
             text-align: left;
-            background: #141414;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #333;
+            background: #111111;
+            padding: 22px 16px;
+            border-radius: 16px;
+            border: 1px solid #222;
         }
         .form-container h3 {
             color: #fff;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
             text-align: center;
+            letter-spacing: 0.5px;
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: #b3b3b3;
+            font-size: 0.82rem;
             font-weight: 600;
         }
         .form-control {
             width: 100%;
-            padding: 14px;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            color: #fff;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            padding: 13px 14px;
+            background: var(--input-bg);
+            border: 1px solid #282828;
+            color: #ffffff;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
         .form-control:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 10px rgba(0, 255, 106, 0.2);
+            box-shadow: 0 0 10px rgba(0, 255, 106, 0.15);
         }
+        
         .form-row {
             display: flex;
-            gap: 20px;
+            flex-direction: column;
+            gap: 0px;
         }
         .form-row .form-group {
             flex: 1;
         }
+
         .input-hint {
-            font-size: 0.75rem;
-            color: #ff3b3b;
+            font-size: 0.72rem;
+            color: #ff4d4d;
             margin-top: 5px;
-            display: block;
+            display: none;
+            line-height: 1.3;
         }
+
         select.form-control {
             appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b3b3b3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position: right 1rem center;
-            background-size: 1em;
+            background-size: 0.9em;
         }
         select.form-control option {
             background: #141414;
@@ -193,73 +204,75 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         /* Review Modal Styles */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85); z-index: 10000;
+            background: rgba(0,0,0,0.92); z-index: 10000;
             display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+            opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+            padding: 15px;
         }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
         .modal-box {
             background: #141414; border: 1px solid var(--accent);
-            width: 90%; max-width: 500px; border-radius: 15px; padding: 30px;
-            text-align: left; max-height: 90vh; overflow-y: auto;
-            box-shadow: 0 0 30px rgba(0,255,106,0.2);
+            width: 100%; max-width: 440px; border-radius: 18px; padding: 22px 18px;
+            text-align: left; max-height: 85vh; overflow-y: auto;
+            box-shadow: 0 0 35px rgba(0,255,106,0.25);
         }
-        .modal-box h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.2rem; text-align: center; }
-        .review-list { margin-bottom: 20px; font-size: 0.9rem; color: #ccc; }
-        .review-item { padding: 8px 0; border-bottom: 1px solid #222; display: flex; justify-content: space-between; }
-        .review-item span:first-child { color: var(--text-muted); font-weight: 600; }
-        .review-item span:last-child { color: #fff; text-align: right; }
+        .modal-box h3 { color: var(--accent); margin-bottom: 10px; font-size: 1.15rem; text-align: center; }
+        .review-list { margin-bottom: 18px; font-size: 0.85rem; color: #e0e0e0; }
+        .review-item { padding: 8px 0; border-bottom: 1px solid #222; display: flex; justify-content: space-between; gap: 12px; }
+        .review-item span:first-child { color: #aaaaaa; font-weight: 600; flex-shrink: 0; }
+        .review-item span:last-child { color: #ffffff; text-align: right; word-break: break-word; font-weight: 500; }
         .modal-buttons { display: flex; gap: 10px; }
 
-        /* Steps Timeline */
-        .steps-container { margin-top: 40px; text-align: left; }
+        /* STEPPER TIMELINE PRO UX */
+        .steps-container { margin-top: 20px; text-align: left; }
         .step-item {
-            display: flex; gap: 15px; margin-bottom: 35px;
-            opacity: 0; transform: translateY(20px); animation: fadeInUp 0.5s forwards;
+            display: flex; gap: 14px; margin-bottom: 24px;
+            opacity: 0; transform: translateY(12px); animation: fadeInUp 0.4s forwards;
             position: relative;
         }
         .step-number {
-            flex-shrink: 0; width: 50px; height: 50px;
-            background: #1a1a1a; border: 1px solid #333;
-            color: var(--text-muted); border-radius: 50%;
+            flex-shrink: 0; width: 44px; height: 44px;
+            background: #181818; border: 1px solid #333;
+            color: var(--accent); border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 1.2rem;
+            font-weight: 700; font-size: 1.1rem;
             position: relative; z-index: 2;
         }
         .step-item.active .step-number {
-            background: var(--accent); color: #000; border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
+            background: #25D366; color: #ffffff; border-color: #25D366;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
         }
         .step-item:not(:last-child)::after {
-            content: ''; position: absolute; top: 50px; left: 25px; transform: translateX(-50%);
-            width: 2px; height: calc(100% - 10px); background: #222; z-index: 1;
+            content: ''; position: absolute; top: 44px; left: 22px; transform: translateX(-50%);
+            width: 2px; height: calc(100% - 6px); background: #222222; z-index: 1;
         }
         
-        .step-content h4 { color: #fff; font-size: 1.1rem; margin-bottom: 5px; }
-        .step-content p { color: #888; font-size: 0.9rem; line-height: 1.4; }
+        .step-content { padding-top: 2px; }
+        .step-content h4 { color: #ffffff; font-size: 1.02rem; margin-bottom: 4px; font-weight: 700; }
+        .step-content p { color: #d0d0d0; font-size: 0.88rem; line-height: 1.45; }
 
         /* Commitment Box */
         .commitment-box {
             background: rgba(255, 0, 0, 0.1); border: 1px solid #ff3b3b;
-            padding: 15px; border-radius: 10px; margin-top: 30px;
-            color: #ffaaaa; font-weight: 700; text-transform: uppercase;
-            font-size: 0.9rem; letter-spacing: 1px;
+            padding: 14px; border-radius: 12px; margin-top: 20px;
+            color: #ffb3b3; font-weight: 800; text-transform: uppercase;
+            font-size: 0.82rem; letter-spacing: 0.8px;
+            text-align: center;
             animation: pulse-red 2s infinite;
         }
-        @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(255, 59, 59, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0); } }
+        @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.35); } 70% { box-shadow: 0 0 0 8px rgba(255, 59, 59, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0); } }
 
         #confetti { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 100%; height: 100%; }
 
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-        footer { text-align: center; padding: 30px; color: #444; font-size: 0.8rem; margin-top: auto; }
+        footer { text-align: center; padding: 20px 10px; color: #777777; font-size: 0.78rem; margin-top: auto; }
         
         @media(min-width: 768px) {
-            .success-card { padding: 60px 80px; }
-            .step-item { gap: 25px; }
-        }
-        @media(max-width: 600px) {
-            .form-row { flex-direction: column; gap: 0; }
+            .success-card { padding: 45px 55px; }
+            .form-container { padding: 28px; }
+            .form-row { flex-direction: row; gap: 16px; }
+            .container { width: 90%; }
         }
     </style>
 </head>
@@ -276,19 +289,19 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 <div class="checkmark"></div>
             </div>
 
-            <h1 class="uppercase text-bold" style="font-size: 2rem; margin-bottom: 10px;">
+            <h1 class="uppercase text-bold" style="font-size: 1.6rem; margin-bottom: 6px; letter-spacing: -0.5px;">
                 You're <span class="text-accent">Officially In!</span>
             </h1>
-            <p class="text-muted">Payment Successful. Welcome to the Ultimate Fitness Squad.</p>
+            <p class="text-muted" style="font-size: 0.88rem; color: #cccccc;">Payment Successful. Welcome to the Ultimate Fitness Squad.</p>
 
-            <div style="margin: 30px auto; height: 1px; width: 50%; background: #222;"></div>
+            <div style="margin: 20px auto; height: 1px; width: 40%; background: #222;"></div>
 
             <!-- ==============================================
                  ONBOARDING FORM SECTION
             =============================================== -->
             <div class="form-container" id="formSectionWrapper">
                 <h3 class="uppercase text-accent">Step 1: Complete Your Profile</h3>
-                <p class="text-center text-muted" style="margin-bottom: 25px; font-size: 0.9rem;">We need a few details to customize your perfect plan.</p>
+                <p class="text-center text-muted" style="margin-bottom: 18px; font-size: 0.85rem; color: #b3b3b3;">We need a few details to customize your perfect plan.</p>
                 
                 <form id="onboardingForm">
                     <div class="form-row">
@@ -299,14 +312,15 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                         <div class="form-group">
                             <label>WhatsApp Number *</label>
                             <input type="tel" class="form-control" id="whatsappInput" name="whatsapp" value="+91" placeholder="+919876543210" required>
-                            <span class="input-hint" id="whatsappWarning" style="display:none;">⚠️ Please check your WhatsApp number (Must start with +91 and have 10 valid digits).</span>
+                            <span class="input-hint" id="whatsappWarning">⚠️ Enter valid +91 number & 10 correct digits.</span>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Age *</label>
-                            <input type="number" class="form-control" id="ageInput" name="age" placeholder="e.g. 28 (1-110)" min="1" max="110" required>
+                            <label>Age (18 - 110) *</label>
+                            <input type="number" class="form-control" id="ageInput" name="age" placeholder="e.g. 28" min="18" max="110" required>
+                            <span class="input-hint" id="ageWarning">⚠️ Age must be between 18 and 110.</span>
                         </div>
                         <div class="form-group">
                             <label>City (Optional)</label>
@@ -318,20 +332,20 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                         <div class="form-group">
                             <label>Current Height *</label>
                             <input type="text" class="form-control" id="heightInput" name="height" placeholder="e.g. 5'8&quot; or 175 cm" required>
-                            <span class="input-hint" id="heightWarning" style="display:none;">⚠️ Enter valid height (e.g. 5'8", 170cm).</span>
+                            <span class="input-hint" id="heightWarning">⚠️ Enter valid height (e.g. 5'8", 175cm).</span>
                         </div>
                         <div class="form-group">
-                            <label>Current Weight *</label>
+                            <label>Current Weight (30kg - 550kg) *</label>
                             <input type="text" class="form-control" id="weightInput" name="weight" placeholder="e.g. 75 kg" required>
-                            <span class="input-hint" id="weightWarning" style="display:none;">⚠️ Enter valid weight (e.g. 75 kg, 160 lbs).</span>
+                            <span class="input-hint" id="weightWarning">⚠️ Enter valid weight (30kg - 550kg).</span>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Targeted Weight *</label>
+                            <label>Targeted Weight (30kg - 550kg) *</label>
                             <input type="text" class="form-control" id="targetWeightInput" name="targeted_weight" placeholder="e.g. 68 kg" required>
-                            <span class="input-hint" id="targetWeightWarning" style="display:none;">⚠️ Enter valid target weight.</span>
+                            <span class="input-hint" id="targetWeightWarning">⚠️ Enter valid target weight.</span>
                         </div>
                         <div class="form-group">
                             <label>Dietary Preference *</label>
@@ -371,41 +385,41 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                         <textarea class="form-control" name="allergies" rows="2" placeholder="e.g. Lactose intolerant, Nuts"></textarea>
                     </div>
 
-                    <div class="text-center" style="margin-top: 30px;">
+                    <div class="text-center" style="margin-top: 20px;">
                         <button type="button" id="reviewBtn" class="btn-primary">Review My Details</button>
                     </div>
                 </form>
             </div>
 
             <!-- THANK YOU / WHATSAPP WORKFLOW CONTAINER (Hidden Initially) -->
-            <div id="thankYouWorkflow" style="display: none; margin: 35px 0; text-align: left;">
-                <div style="background: rgba(0,255,106,0.05); border: 1px solid var(--accent); padding: 30px; border-radius: 15px; text-align: center;">
-                    <h3 class="uppercase text-accent" style="font-size: 1.5rem; margin-bottom: 10px;"><i class="fas fa-check-circle"></i> Profile Received Successfully!</h3>
-                    <p class="text-muted" style="margin-bottom: 25px; font-size: 0.95rem;">Your personal trainer is reviewing your details to build your custom transformation blueprint.</p>
+            <div id="thankYouWorkflow" style="display: none; margin: 20px 0; text-align: left;">
+                <div style="background: rgba(0, 255, 106, 0.05); border: 1px solid var(--accent); padding: 20px 16px; border-radius: 16px; text-align: center;">
+                    <h3 class="uppercase text-accent" style="font-size: 1.25rem; margin-bottom: 8px; letter-spacing: -0.3px;"><i class="fas fa-check-circle"></i> Profile Received Successfully!</h3>
+                    <p class="text-muted" style="margin-bottom: 0; font-size: 0.88rem; color: #d0d0d0; line-height: 1.45;">Your personal trainer is reviewing your details to build your custom transformation blueprint.</p>
                 </div>
 
-                <h3 class="uppercase" style="margin-bottom: 25px; font-size: 1.2rem; margin-top: 30px;">What Happens Next?</h3>
+                <h3 class="uppercase" style="margin-bottom: 18px; font-size: 1.05rem; margin-top: 25px; text-align: center; color: #ffffff;">What Happens Next?</h3>
                 
                 <div class="steps-container" style="margin-top: 0;">
-                    <div class="step-item active" style="animation-delay: 0.3s;">
-                        <div class="step-number" style="background: #25D366; color: #fff; border:none;"><i class="fab fa-whatsapp"></i></div>
+                    <div class="step-item active" style="animation-delay: 0.2s;">
+                        <div class="step-number"><i class="fab fa-whatsapp"></i></div>
                         <div class="step-content">
                             <h4>Check Your WhatsApp Daily</h4>
                             <p>Your personal trainer will directly ping you on your WhatsApp chat with your customized <strong>Diet & Workout Plan</strong> very shortly.</p>
                         </div>
                     </div>
 
-                    <div class="step-item active" style="animation-delay: 0.5s;">
-                        <div class="step-number" style="background: #ff3b3b; color: #fff; border:none;"><i class="fas fa-fire"></i></div>
+                    <div class="step-item active" style="animation-delay: 0.4s;">
+                        <div class="step-number" style="background: #ff3b3b; color: #ffffff; border-color: #ff3b3b;"><i class="fas fa-fire"></i></div>
                         <div class="step-content">
-                            <h4>Follow Routine & Stay Consistent</h4>
+                            <h4>Follow Diet & Workout</h4>
                             <p>Review and follow the daily milestones sent directly by your coach.</p>
-                            <p style="color: #fff; margin-top: 8px;"><i class="fas fa-exclamation-circle text-accent"></i> <strong>MANDATORY:</strong> You must join the Session Everyday.</p>
+                            <p style="color: #ffffff; margin-top: 6px; font-weight: 600;"><i class="fas fa-exclamation-circle text-accent"></i> <strong>MANDATORY:</strong> You must join the Session Everyday.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="commitment-box reveal delay-200" style="text-align: center;">
+                <div class="commitment-box reveal delay-200">
                     <i class="fas fa-fire"></i> RULE #1: STAY DAILY ACTIVE
                 </div>
             </div>
@@ -413,9 +427,8 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                  END FORM & WORKFLOW SECTION
             =============================================== -->
 
-            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #222;">
-                <p style="font-size: 0.85rem; color: #666;">Need help? <a href="mailto:support@coachmanpreet.com" style="color: #888; text-decoration: underline;">Contact Support</a></p>
-                <a href="index.html" class="btn-secondary">Back to Home</a>
+            <div style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #1f1f1f;">
+                <p style="font-size: 0.8rem; color: #888888;">Need help? <a href="mailto:support@coachmanpreet.com" style="color: #aaaaaa; text-decoration: underline;">Contact Support</a></p>
             </div>
 
         </div>
@@ -425,28 +438,28 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
     <div class="modal-overlay" id="reviewModal">
         <div class="modal-box">
             <h3>Review Your Details</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-bottom: 15px;">Please verify your data before final submission.</p>
+            <p style="font-size: 0.8rem; color: #b3b3b3; text-align: center; margin-bottom: 12px;">Please verify your data before final submission.</p>
             <div class="review-list" id="reviewContent"></div>
             <div class="modal-buttons">
-                <button type="button" class="btn-secondary" id="editBtn" style="flex:1; margin-top:0;">Edit Details</button>
-                <button type="button" class="btn-primary" id="confirmSubmitBtn" style="flex:1; max-width:none;">Confirm & Submit</button>
+                <button type="button" class="btn-secondary" id="editBtn" style="flex:1; margin-top:0; padding:12px;">Edit Details</button>
+                <button type="button" class="btn-primary" id="confirmSubmitBtn" style="flex:1; max-width:none; padding:12px; font-size:0.85rem;">Submit</button>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Coach Manpreet Fitness. All Rights Reserved.</p>
+        <p>&copy; 2026 Fitwithmanpreett. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Particle Background
+        // Particle Background Animation
         const canvas = document.getElementById("particles-js");
         const ctx = canvas.getContext("2d");
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
         let particles = [];
-        for(let i=0; i<20; i++) particles.push({
+        for(let i=0; i<15; i++) particles.push({
             x: Math.random()*canvas.width, y: Math.random()*canvas.height,
-            vx: (Math.random()-0.5)*0.5, vy: (Math.random()-0.5)*0.5, size: Math.random()*2
+            vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4, size: Math.random()*1.8
         });
         function animate() {
             ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -454,7 +467,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 p.x += p.vx; p.y += p.vy;
                 if(p.x<0||p.x>canvas.width) p.x=Math.random()*canvas.width;
                 if(p.y<0||p.y>canvas.height) p.y=Math.random()*canvas.height;
-                ctx.fillStyle='rgba(0,255,106,0.3)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill();
+                ctx.fillStyle='rgba(0,255,106,0.25)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill();
             });
             requestAnimationFrame(animate);
         }
@@ -469,13 +482,14 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         const colors = ['#00FF6A', '#ffffff', '#00cc55'];
 
         function createConfetti() {
-            for(let i=0; i<100; i++) {
+            confetti = [];
+            for(let i=0; i<80; i++) {
                 confetti.push({
                     x: Math.random() * confettiCanvas.width,
                     y: Math.random() * confettiCanvas.height - confettiCanvas.height,
                     color: colors[Math.floor(Math.random() * colors.length)],
-                    size: Math.random() * 8 + 4,
-                    speed: Math.random() * 5 + 2,
+                    size: Math.random() * 7 + 3,
+                    speed: Math.random() * 4 + 2,
                     angle: Math.random() * 360
                 });
             }
@@ -497,7 +511,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             if(confetti.length > 0) requestAnimationFrame(drawConfetti);
         }
 
-        // Strict Validation & Spam Check Logic
+        // Strict Validation & Spam Prevention Logic
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxYRPT6U2Z3Cm2gRRwGys0DlrAGbXCU1IYnXiGML-RP7zQNwstlPMgQu2gCvypgz7_2_A/exec';
         const form = document.getElementById('onboardingForm');
         const formSectionWrapper = document.getElementById('formSectionWrapper');
@@ -511,6 +525,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         const whatsappInput = document.getElementById('whatsappInput');
         const whatsappWarning = document.getElementById('whatsappWarning');
         const ageInput = document.getElementById('ageInput');
+        const ageWarning = document.getElementById('ageWarning');
         const heightInput = document.getElementById('heightInput');
         const heightWarning = document.getElementById('heightWarning');
         const weightInput = document.getElementById('weightInput');
@@ -518,7 +533,6 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         const targetWeightInput = document.getElementById('targetWeightInput');
         const targetWeightWarning = document.getElementById('targetWeightWarning');
 
-        // Always ensure +91 prefix stays intact
         whatsappInput.addEventListener('focus', () => {
             if (!whatsappInput.value.startsWith('+91')) {
                 whatsappInput.value = '+91';
@@ -537,25 +551,38 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             }
         });
 
-        // Measurement Validation helper (requires numbers + unit indicators)
-        function isValidMeasurement(val) {
-            val = val.trim().toLowerCase();
-            // Must contain at least one digit and some text/units
-            const hasDigits = /\d/.test(val);
-            const hasSpamText = /^(test|abc|xyz|na|none|\.{2,}|-{2,})$/.test(val);
-            return hasDigits && !hasSpamText && val.length >= 2;
-        }
+        ageInput.addEventListener('input', () => {
+            let val = parseInt(ageInput.value);
+            if (isNaN(val) || val < 18 || val > 110) {
+                ageWarning.style.display = 'block';
+            } else {
+                ageWarning.style.display = 'none';
+            }
+        });
 
         heightInput.addEventListener('input', () => {
-            if (!isValidMeasurement(heightInput.value)) {
+            let val = heightInput.value.trim();
+            const hasNumber = /\d/.test(val);
+            const isSpam = /^(\d)\1+$/.test(val.replace(/\D/g, ''));
+            if (!hasNumber || isSpam || val.length < 2) {
                 heightWarning.style.display = 'block';
             } else {
                 heightWarning.style.display = 'none';
             }
         });
 
+        function extractWeightNumber(str) {
+            let match = str.match(/(\d+(\.\d+)?)/);
+            return match ? parseFloat(match[0]) : null;
+        }
+
         weightInput.addEventListener('input', () => {
-            if (!isValidMeasurement(weightInput.value)) {
+            let valStr = weightInput.value.trim();
+            let num = extractWeightNumber(valStr);
+            let digitsOnly = valStr.replace(/\D/g, '');
+            let isRepeating = /^(\d)\1{3,}$/.test(digitsOnly);
+
+            if (num === null || num < 30 || num > 550 || isRepeating) {
                 weightWarning.style.display = 'block';
             } else {
                 weightWarning.style.display = 'none';
@@ -563,7 +590,12 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         });
 
         targetWeightInput.addEventListener('input', () => {
-            if (!isValidMeasurement(targetWeightInput.value)) {
+            let valStr = targetWeightInput.value.trim();
+            let num = extractWeightNumber(valStr);
+            let digitsOnly = valStr.replace(/\D/g, '');
+            let isRepeating = /^(\d)\1{3,}$/.test(digitsOnly);
+
+            if (num === null || num < 30 || num > 550 || isRepeating) {
                 targetWeightWarning.style.display = 'block';
             } else {
                 targetWeightWarning.style.display = 'none';
@@ -576,26 +608,25 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 return;
             }
 
-            // WhatsApp validation check
-            let digits = whatsappInput.value.replace('+91', '').replace(/\D/g, '');
-            if (digits.length !== 10 || /^(\d)\1{9}$/.test(digits)) {
+            let wpDigits = whatsappInput.value.replace('+91', '').replace(/\D/g, '');
+            if (wpDigits.length !== 10 || /^(\d)\1{9}$/.test(wpDigits)) {
                 whatsappWarning.style.display = 'block';
-                alert('Please enter a valid 10-digit WhatsApp number following +91.');
+                alert('Please provide a valid 10-digit WhatsApp number.');
                 whatsappInput.focus();
                 return;
             }
 
-            // Age check
             let ageVal = parseInt(ageInput.value);
-            if (isNaN(ageVal) || ageVal < 1 || ageVal > 110) {
-                alert('Please enter a valid age between 1 and 110.');
+            if (isNaN(ageVal) || ageVal < 18 || ageVal > 110) {
+                alert('Age must be between 18 and 110.');
                 ageInput.focus();
                 return;
             }
 
-            // Measurements check
-            if (!isValidMeasurement(heightInput.value) || !isValidMeasurement(weightInput.value) || !isValidMeasurement(targetWeightInput.value)) {
-                alert('Please enter accurate and valid height and weight values (e.g., 5\'8", 75 kg).');
+            let wNum = extractWeightNumber(weightInput.value);
+            let twNum = extractWeightNumber(targetWeightInput.value);
+            if (wNum === null || wNum < 30 || wNum > 550 || twNum === null || twNum < 30 || twNum > 550) {
+                alert('Please enter realistic current and targeted weights (between 30kg and 550kg).');
                 return;
             }
 
@@ -643,7 +674,6 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 finalizeSubmissionUI();
             })
             .catch(error => {
-                // Fallback for CORS opaque response redirect from Google Apps Script
                 finalizeSubmissionUI();
             });
         });
@@ -651,15 +681,12 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         function finalizeSubmissionUI() {
             reviewModal.classList.remove('active');
             
-            // Hide the form section and smoothly reveal the Thank You & WhatsApp Workflow
             formSectionWrapper.style.display = 'none';
             thankYouWorkflow.style.display = 'block';
 
-            // Trigger celebration confetti
             createConfetti();
             drawConfetti();
 
-            // Scroll smoothly to top of the card
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
