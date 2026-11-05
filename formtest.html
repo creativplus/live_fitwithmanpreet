@@ -303,7 +303,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 <h3 class="uppercase text-accent">Step 1: Complete Your Profile</h3>
                 <p class="text-center text-muted" style="margin-bottom: 18px; font-size: 0.85rem; color: #b3b3b3;">We need a few details to customize your perfect plan.</p>
                 
-                <form id="onboardingForm">
+                <form id="onboardingForm" action="https://script.google.com/macros/s/AKfycbxYRPT6U2Z3Cm2gRRwGys0DlrAGbXCU1IYnXiGML-RP7zQNwstlPMgQu2gCvypgz7_2_A/exec" method="POST" target="hidden_iframe">
                     <div class="form-row">
                         <div class="form-group">
                             <label>Full Name *</label>
@@ -391,6 +391,9 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 </form>
             </div>
 
+            <!-- Hidden Iframe to handle background Google Sheet POST requests without CORS errors -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){ finalizeSubmissionUI(); }"></iframe>
+
             <!-- THANK YOU / WHATSAPP WORKFLOW CONTAINER (Hidden Initially) -->
             <div id="thankYouWorkflow" style="display: none; margin: 20px 0; text-align: left;">
                 <div style="background: rgba(0, 255, 106, 0.05); border: 1px solid var(--accent); padding: 20px 16px; border-radius: 16px; text-align: center;">
@@ -412,7 +415,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                     <div class="step-item active" style="animation-delay: 0.4s;">
                         <div class="step-number" style="background: #ff3b3b; color: #ffffff; border-color: #ff3b3b;"><i class="fas fa-fire"></i></div>
                         <div class="step-content">
-                            <h4>Follow Diet & Workout</h4>
+                            <h4>Follow Routine & Join Live Sessions</h4>
                             <p>Review and follow the daily milestones sent directly by your coach.</p>
                             <p style="color: #ffffff; margin-top: 6px; font-weight: 600;"><i class="fas fa-exclamation-circle text-accent"></i> <strong>MANDATORY:</strong> You must join the Session Everyday.</p>
                         </div>
@@ -661,26 +664,19 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             reviewModal.classList.remove('active');
         });
 
+        let submitted = false;
+
         confirmSubmitBtn.addEventListener('click', () => {
             confirmSubmitBtn.disabled = true;
             confirmSubmitBtn.innerText = 'Submitting...';
-
-            fetch(scriptURL, { 
-                method: 'POST', 
-                body: new FormData(form) 
-            })
-            .then(response => response.json())
-            .then(result => {
-                finalizeSubmissionUI();
-            })
-            .catch(error => {
-                finalizeSubmissionUI();
-            });
+            reviewModal.classList.remove('active');
+            
+            submitted = true;
+            // Native background form post to hidden iframe and Google Sheet
+            form.submit();
         });
 
         function finalizeSubmissionUI() {
-            reviewModal.classList.remove('active');
-            
             formSectionWrapper.style.display = 'none';
             thankYouWorkflow.style.display = 'block';
 
