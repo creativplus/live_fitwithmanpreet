@@ -374,6 +374,132 @@
             .masonry { column-count: 4; column-gap: 15px; }
             .sticky-cta { width: 400px; left: 50%; transform: translateX(-50%); }
         }
+        
+        /* -----------------------------------------------------------
+   FAQ SECTION
+----------------------------------------------------------- */
+#faq { background-color: #060606; }
+.faq-list {
+    max-width: 780px;
+    margin: 24px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.faq-item {
+    background: #0f0f0f;
+    border: 1px solid #222;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+.faq-item.active {
+    border-color: var(--accent);
+}
+.faq-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 18px 16px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+.faq-question i {
+    color: var(--accent);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 16px;
+}
+.faq-item.active .faq-answer {
+    max-height: 260px;
+    padding: 0 16px 18px 16px;
+}
+.faq-answer p {
+    color: #b3b3b3;
+    font-size: 0.85rem;
+    line-height: 1.55;
+}
+.faq-answer a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+/* -----------------------------------------------------------
+   UNIFIED FULL-PAGE BACKGROUND & GLASS CARDS
+----------------------------------------------------------- */
+body {
+    background-color: #050505;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 255, 106, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 55%, rgba(0, 255, 106, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(0, 255, 106, 0.07) 0%, transparent 40%),
+        radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+    background-attachment: fixed;
+}
+
+/* Keep particles visible across the full page while scrolling */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* Make all sections transparent/semi-transparent so the full-page background shows through */
+#hero,
+#challenge,
+#quick-reviews,
+#about-coach,
+#real-problem,
+#reviews,
+#faq {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Subtle green tint on key conversion sections so they still stand out */
+#solution,
+#pricing {
+    background: radial-gradient(circle at center, rgba(0, 255, 106, 0.07) 0%, transparent 70%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+footer {
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Frosted glass effect on cards so text stays crisp over the background */
+.pain-card,
+.problem-card,
+.faq-item,
+.solution-box,
+.pricing-card {
+    background: rgba(14, 14, 14, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
     </style>
 </head>
 <body>
@@ -575,23 +701,80 @@
         </div>
     </section>
 
-    <section id="proof">
-        <div class="container">
-            <h3 class="text-center text-bold uppercase reveal" style="margin-bottom: 20px;">Inside Our <span class="text-accent">WhatsApp Community</span></h3>
-            <div class="masonry reveal delay-200">
-                <div class="masonry-item"><img src="ss1.png" alt="Community Feedback 1" loading="lazy"></div>
-                <div class="masonry-item"><img src="ss2.png" alt="Community Feedback 2" loading="lazy"></div>
-                <div class="masonry-item"><img src="ss3.png" alt="Community Feedback 3" loading="lazy"></div>
-                <div class="masonry-item"><img src="ss4.png" alt="Community Feedback 4" loading="lazy"></div>
+<section id="faq">
+    <div class="container">
+        <h2 class="text-center text-bold uppercase reveal">Frequently Asked <span class="text-accent">Questions</span></h2>
+        
+        <div class="faq-list reveal delay-100">
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>Do I need a gym membership to join?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>No. You can choose either a home workout plan or a gym workout plan based on your preference and available equipment.</p>
+                </div>
             </div>
-            <div class="section-cta reveal delay-200">
-                <a href="https://superprofile.bio/vp/fit1179ind" class="btn-primary cta-track">Join The Community</a>
-                <div class="cta-info">
-                    <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee (<a href="https://www.fitwithmanpreett.in/refund-policy" target="_blank" rel="noopener">Terms Apply</a>)</span>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>Will I have to eat expensive or fancy diet food?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Not at all. Meal plans are built around everyday home-cooked Indian food (both vegetarian and non-vegetarian options) so you can stay consistent easily.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>I have a busy 9–5 schedule. Can I still follow this?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. The program is structured specifically for busy working professionals and students, with practical routines that fit into a packed day.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>Is this program suitable for complete beginners?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. Workouts and meal guidance are tailored to your current fitness level, with step-by-step coaching and regular WhatsApp check-ins.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>How does the 15-Day Money Back Guarantee work?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>If you feel the coaching program isn't the right fit within 15 days of enrolling, you can request a refund by emailing Support at <a href="mailto:Contact@fitwithmanpreett.in">Contact@fitwithmanpreett.in</a>. Please review our <a href="https://www.fitwithmanpreett.in/refund-policy" target="_blank" rel="noopener">Refund Policy</a> for full eligibility terms.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>What happens right after I complete my enrollment?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Immediately after secure checkout via Superprofile, you will receive onboarding instructions and access details to connect with Coach Manpreet and start your plan.</p>
                 </div>
             </div>
         </div>
-    </section>
+
+        <div class="section-cta reveal delay-200">
+            <a href="https://superprofile.bio/vp/fit1179ind" class="btn-primary cta-track">Join the Program @ ₹1,179</a>
+            <div class="cta-info">
+                <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee (<a href="https://www.fitwithmanpreett.in/refund-policy" target="_blank" rel="noopener">Terms Apply</a>)</span>
+            </div>
+        </div>
+    </div>
+</section>
 
     <footer>
         <div class="container">
@@ -752,6 +935,21 @@
             requestAnimationFrame(animateParticles);
         }
         animateParticles();
+        // FAQ Accordion Logic
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const currentItem = button.parentElement;
+        const isActive = currentItem.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+        });
+
+        if (!isActive) {
+            currentItem.classList.add('active');
+        }
+    });
+});
     </script>
 </body>
 </html>
