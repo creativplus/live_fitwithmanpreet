@@ -440,20 +440,54 @@
     text-decoration: underline;
 }
 /* -----------------------------------------------------------
-   UNIFIED FULL-PAGE BACKGROUND & GLASS CARDS
+   PREMIUM TRICOLOR AURORA BACKGROUND & LUXURY FOOTER
 ----------------------------------------------------------- */
-body {
-    background-color: #050505;
-    background-image: 
-        radial-gradient(circle at 15% 15%, rgba(0, 255, 106, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 55%, rgba(0, 255, 106, 0.06) 0%, transparent 45%),
-        radial-gradient(circle at 50% 90%, rgba(0, 255, 106, 0.07) 0%, transparent 40%),
-        radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
-    background-attachment: fixed;
+/* Sleek 3px tricolor accent line at the very top */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+    z-index: 9999;
+    box-shadow: 0 0 12px rgba(255, 153, 51, 0.35);
 }
 
-/* Keep particles visible across the full page while scrolling */
+/* Deep midnight-charcoal base with subtle dot grid */
+body {
+    background-color: #05070a;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 26px 26px;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Smooth, slow-breathing tricolor ambient aurora layer */
+body::after {
+    content: "";
+    position: fixed;
+    inset: -15%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(255, 153, 51, 0.22) 0%, transparent 42%),   /* Saffron Glow */
+        radial-gradient(circle at 82% 45%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),  /* Soft White Mist */
+        radial-gradient(circle at 50% 50%, rgba(10, 28, 70, 0.25) 0%, transparent 55%),     /* Deep Chakra Navy Depth */
+        radial-gradient(circle at 22% 85%, rgba(19, 136, 8, 0.24) 0%, transparent 46%),     /* India Green Glow */
+        radial-gradient(circle at 85% 88%, rgba(0, 255, 106, 0.10) 0%, transparent 38%);    /* Brand Accent Blend */
+    animation: auroraFloat 16s ease-in-out infinite alternate;
+}
+
+@keyframes auroraFloat {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    50%  { transform: translate3d(1.5%, -1.5%, 0) scale(1.04); }
+    100% { transform: translate3d(-1.5%, 1.5%, 0) scale(1.02); }
+}
+
+/* Keep floating particles visible across the full page */
 #particles-js {
     position: fixed;
     top: 0;
@@ -461,11 +495,11 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: 0.35;
+    opacity: 0.3;
     pointer-events: none;
 }
 
-/* Make all sections transparent/semi-transparent so the full-page background shows through */
+/* Transparent sections so the animated aurora flows continuously */
 #hero,
 #challenge,
 #quick-reviews,
@@ -477,28 +511,115 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Subtle green tint on key conversion sections so they still stand out */
 #solution,
 #pricing {
-    background: radial-gradient(circle at center, rgba(0, 255, 106, 0.07) 0%, transparent 70%) !important;
+    background: radial-gradient(circle at center, rgba(19, 136, 8, 0.12) 0%, transparent 70%) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-footer {
-    background: rgba(5, 5, 5, 0.85);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* Frosted glass effect on cards so text stays crisp over the background */
+/* Polished Dark Glass Cards with subtle top-edge light reflection */
 .pain-card,
 .problem-card,
 .faq-item,
 .solution-box,
 .pricing-card {
-    background: rgba(14, 14, 14, 0.82);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(12, 15, 20, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.pricing-card {
+    border-color: rgba(0, 255, 106, 0.45);
+}
+
+/* -----------------------------------------------------------
+   PREMIUM FOOTER STYLING
+----------------------------------------------------------- */
+footer {
+    position: relative;
+    z-index: 2;
+    background:
+        radial-gradient(circle at 50% 100%, rgba(19, 136, 8, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 15% 0%, rgba(255, 153, 51, 0.12) 0%, transparent 50%),
+        rgba(6, 8, 12, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 50px 0 120px 0;
+    border-top: none;
+}
+
+/* Glowing tricolor hairline divider along the top of the footer */
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 153, 51, 0.8) 25%,
+        rgba(255, 255, 255, 0.7) 50%,
+        rgba(19, 136, 8, 0.85) 75%,
+        transparent 100%
+    );
+}
+
+.footer-links {
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #ccc;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.74rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: #000;
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.footer-contact {
+    margin-top: 18px;
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: rgba(0, 255, 106, 0.06);
+    border: 1px solid rgba(0, 255, 106, 0.2);
+    font-size: 0.78rem;
+    color: #ddd;
+}
+
+.footer-contact a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+.sticky-cta {
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* Optional: also remove the green glow around the sticky button itself */
+.sticky-cta .btn-primary,
+.sticky-cta .btn-primary:hover {
+    box-shadow: none !important;
 }
     </style>
 </head>
@@ -520,13 +641,13 @@ footer {
             </div>
             
             <div class="video-wrapper reveal delay-200">
-                <iframe 
-                    src="https://www.youtube.com/embed/2E7-SATrKPw?rel=0&playsinline=1" 
-                    title="Coach Manpreet Ultimate Fitness Overview"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
+    <iframe 
+        src="https://www.youtube.com/embed/2E7-SATrKPw?autoplay=1&mute=1&loop=1&playlist=2E7-SATrKPw&playsinline=1&rel=0" 
+        title="Coach Manpreet Ultimate Fitness Overview"
+        allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
             
             <div class="reveal delay-200">
                 <a href="https://superprofile.bio/vp/fit1179ind" class="btn-primary cta-track">Join the Program</a>
