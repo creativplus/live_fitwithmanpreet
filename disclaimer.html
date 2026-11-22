@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer | FITWITHMANPREETT</title>
+    <link rel="icon" href="fit-with-manpreet-favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #0f0f0f;
+            --text-main: #ffffff;
+            --text-muted: #b3b3b3;
+            --accent: #00FF6A;
+            --accent-glow: rgba(0, 255, 106, 0.4);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#222 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.7;
+        }
+
+        /* PRO HEADER */
+        header {
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1a1a1a;
+            position: sticky; top: 0; z-index: 1000; padding: 15px 30px;
+        }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .header-logo img { max-height: 45px; width: auto; display: block; }
+        .nav-links { display: flex; align-items: center; gap: 25px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+        .header-btn {
+            background: var(--accent); color: #000; font-weight: 800; padding: 10px 22px;
+            border-radius: 50px; text-transform: uppercase; text-decoration: none; font-size: 0.85rem;
+            box-shadow: 0 0 15px var(--accent-glow); transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .header-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--accent-glow); }
+        @media(max-width: 768px) { .nav-links { display: none; } }
+
+        /* CONTAINER & CARD */
+        .container { width: 90%; max-width: 850px; margin: 50px auto; flex: 1; }
+        .card {
+            background: var(--card-bg); border: 1px solid #222; border-radius: 20px;
+            padding: 50px; box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+        h1 { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
+        .text-accent { color: var(--accent); }
+        .effective-date { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { font-size: 1.25rem; color: #fff; margin-top: 30px; margin-bottom: 12px; font-weight: 700; border-left: 3px solid var(--accent); padding-left: 12px; }
+        p, li { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
+        ul { padding-left: 20px; margin-bottom: 15px; }
+
+        /* FOOTER */
+        footer {
+            background: #080808; border-top: 1px solid #1a1a1a; padding: 50px 20px 40px;
+            text-align: center; color: #b3b3b3; font-size: 0.85rem; margin-top: auto; width: 100%;
+        }
+        .footer-content { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .footer-logo-img { max-height: 85px; width: auto; display: block; object-fit: contain; margin-bottom: 5px; }
+        .footer-socials { display: flex; gap: 15px; }
+        .footer-socials a {
+            width: 40px; height: 40px; background: #141414; border: 1px solid #333;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1rem; transition: all 0.3s ease; text-decoration: none;
+        }
+        .footer-socials a:hover {
+            background: #00FF6A; color: #000; border-color: #00FF6A;
+            box-shadow: 0 0 15px rgba(0, 255, 106, 0.4); transform: translateY(-3px);
+        }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-weight: 600; font-size: 0.9rem; margin-top: 5px; }
+        .footer-links a { color: #b3b3b3; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: #00FF6A; }
+        .footer-divider { width: 100%; max-width: 400px; height: 1px; background: #222; margin: 10px 0; }
+        .footer-copy { font-size: 0.8rem; color: #666; line-height: 1.5; }
+        .footer-copy a { color: #00FF6A; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <!-- PRO HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="header-logo">
+                <img src="Fit_With_Manpreet_horizontal_Logo.png" alt="FITWITHMANPREETT Logo">
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="disclaimer.html" class="active">Disclaimer</a>
+                <a href="refund-policy.html">Refund Policy</a>
+            </nav>
+            <a href="https://wa.me/918360767176" target="_blank" class="header-btn">Join Now</a>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="container">
+        <div class="card">
+            <h1>Fitness & Health <span class="text-accent">Disclaimer</span></h1>
+            <p class="effective-date">Last Updated: 22 November 2026 | Enterprise: FITWITHMANPREETT</p>
+
+            <p>The information, workout guides, nutrition suggestions, and coaching sessions provided by <strong>FITWITHMANPREETT</strong> are intended strictly for general fitness education and wellness support.</p>
+
+            <h2>1. Not Medical Advice</h2>
+            <p>Content shared through our website, WhatsApp updates, Telegram channels, or coaching calls does not constitute medical advice, diagnosis, or treatment. Always consult a qualified doctor or healthcare professional before starting any exercise program, changing your diet, or taking supplements.</p>
+
+            <h2>2. Individual Results Vary</h2>
+            <p>Fitness and body transformation outcomes depend heavily on individual factors such as starting fitness level, adherence to routines, sleep, recovery, age, and metabolism. Past client results or testimonials shown for illustration do not guarantee identical outcomes for every participant.</p>
+
+            <h2>3. Assumption of Risk</h2>
+            <p>Physical exercise carries inherent risks, including muscle strain or injury. By participating in any workout or lifestyle routine, you acknowledge that you do so voluntarily at your own discretion and assume responsibility for performing movements safely within your personal limits.</p>
+
+            <h2>4. Contact Support</h2>
+            <p>If you have questions about how our programs work, reach out to our team:</p>
+            <p><strong>Email:</strong> <a href="mailto:Contact@fitwithmanpreett.in" style="color:var(--accent); text-decoration:none;">Contact@fitwithmanpreett.in</a><br>
+            <strong>Phone:</strong> <a href="tel:+918360767176" style="color:var(--text-muted); text-decoration:none;">+91 83607 67176</a><br>
+            <strong>Address:</strong> House No. 199, Guru Nanak Nagar, Street No. 06, Samrala Road, Khanna, Ludhiana, Punjab - 141401</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <a href="index.html">
+                <img src="Fit_With_Manpreet_horizontal_Logo.png" alt="FITWITHMANPREETT Logo" class="footer-logo-img">
+            </a>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/fitwithmanpreett" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/19cNFfiTN3/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/918360767176" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="disclaimer.html">Disclaimer</a>
+                <a href="refund-policy.html">Refund Policy</a>
+                <a href="copyright.html">Copyright</a>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-copy">
+                <p>&copy; 2026 FITWITHMANPREETT. All Rights Reserved.</p>
+                <p>Support: <a href="mailto:Contact@fitwithmanpreett.in">Contact@fitwithmanpreett.in</a> | Phone: <a href="tel:+918360767176">+91 83607 67176</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
