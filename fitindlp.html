@@ -621,6 +621,39 @@ footer::before {
 .sticky-cta .btn-primary:hover {
     box-shadow: none !important;
 }
+.unmute-overlay-btn {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: rgba(5, 7, 10, 0.88);
+    color: #fff;
+    border: 1.5px solid var(--accent);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 255, 106, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    white-space: nowrap;
+    transition: transform 0.2s ease, opacity 0.25s ease;
+    animation: softPulse 1.6s infinite;
+}
+
+.unmute-overlay-btn i {
+    color: var(--accent);
+    font-size: 0.95rem;
+}
+
+.unmute-overlay-btn:active {
+    transform: translateX(-50%) scale(0.96);
+}
     </style>
 </head>
 <body>
@@ -640,13 +673,17 @@ footer::before {
                 <div class="point-item"><i class="fas fa-calendar-check"></i>Structured Coaching</div>
             </div>
             
-            <div class="video-wrapper reveal delay-200">
+           <div class="video-wrapper reveal delay-200">
     <iframe 
-        src="https://www.youtube.com/embed/2E7-SATrKPw?autoplay=1&mute=1&loop=1&playlist=2E7-SATrKPw&playsinline=1&rel=0" 
+        id="hero-yt-iframe"
+        src="https://www.youtube.com/embed/2E7-SATrKPw?autoplay=1&mute=1&loop=1&playlist=2E7-SATrKPw&playsinline=1&rel=0&enablejsapi=1" 
         title="Coach Manpreet Ultimate Fitness Overview"
         allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen>
     </iframe>
+    <button type="button" id="heroUnmuteBtn" class="unmute-overlay-btn">
+        <i class="fas fa-volume-mute"></i> Tap to Unmute
+    </button>
 </div>
             
             <div class="reveal delay-200">
@@ -1071,6 +1108,26 @@ document.querySelectorAll('.faq-question').forEach(button => {
         }
     });
 });
+// Hero Video Unmute Button
+const heroUnmuteBtn = document.getElementById('heroUnmuteBtn');
+const heroYtIframe = document.getElementById('hero-yt-iframe');
+
+if (heroUnmuteBtn && heroYtIframe) {
+    heroUnmuteBtn.addEventListener('click', () => {
+        heroYtIframe.contentWindow.postMessage(
+            JSON.stringify({ event: 'command', func: 'unMute', args: '' }),
+            '*'
+        );
+        heroYtIframe.contentWindow.postMessage(
+            JSON.stringify({ event: 'command', func: 'setVolume', args: [100] }),
+            '*'
+        );
+        heroUnmuteBtn.style.opacity = '0';
+        setTimeout(() => {
+            heroUnmuteBtn.style.display = 'none';
+        }, 250);
+    });
+}
     </script>
 </body>
 </html>
