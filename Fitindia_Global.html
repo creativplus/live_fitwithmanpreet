@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Welcome to the Squad | Payment Successful</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="fit-with-manpreet-favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1415678120140779');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <style>
+        /* -----------------------------------------------------------
+            ROOT & RESET
+        ----------------------------------------------------------- */
+        :root {
+            --bg-color: #050505;
+            --text-main: #ffffff;
+            --text-muted: #d0d0d0;
+            --accent: #00FF6A; /* Neon Green */
+            --accent-glow: rgba(0, 255, 106, 0.4);
+            --card-bg: #0d0d0d;
+            --input-bg: #0A0A0A;
+            --border-color: #222222;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#1a1a1a 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
+            color: var(--text-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* -----------------------------------------------------------
+            UTILITIES & PRO MOBILE UX
+        ----------------------------------------------------------- */
+        .container { width: 94%; max-width: 680px; margin: 0 auto; position: relative; z-index: 2; padding: 15px 0; }
+        .text-center { text-align: center; }
+        .text-accent { color: var(--accent); }
+        .uppercase { text-transform: uppercase; }
+        .text-bold { font-weight: 800; }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: #000000;
+            font-weight: 800;
+            padding: 16px 20px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 25px var(--accent-glow);
+            border: none; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            max-width: 320px;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+        .btn-primary:active { transform: scale(0.98); }
+        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        /* -----------------------------------------------------------
+            CARD & PRO MOBILE LAYOUT
+        ----------------------------------------------------------- */
+        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.35; pointer-events: none; }
+
+        .success-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 28px 18px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.95);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Checkmark */
+        .checkmark-circle {
+            width: 68px; height: 68px; position: relative; display: inline-block;
+            vertical-align: top; margin-bottom: 12px;
+        }
+        .checkmark-circle .background {
+            width: 68px; height: 68px; border-radius: 50%; background: #002b12;
+            position: absolute; border: 2px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .checkmark-circle .checkmark {
+            border-radius: 4px; transform: rotate(45deg); position: absolute;
+            left: 23px; top: 39px; width: 20px; height: 36px;
+            border-bottom: 3.5px solid var(--accent);
+            border-right: 3.5px solid var(--accent);
+            margin-top: -24px; animation: checkmark-anim 0.8s ease backwards 0.2s;
+        }
+        @keyframes checkmark-anim { 0% { height: 0; width: 0; opacity: 0; } 40% { height: 0; width: 20px; opacity: 1; } 100% { height: 36px; width: 20px; opacity: 1; } }
+
+        /* -----------------------------------------------------------
+            ONBOARDING FORM MOBILE OPTIMIZATION
+        ----------------------------------------------------------- */
+        .form-container {
+            margin: 20px 0;
+            text-align: left;
+            background: #111111;
+            padding: 22px 16px;
+            border-radius: 16px;
+            border: 1px solid #222;
+        }
+        .form-container h3 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #b3b3b3;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+        .form-control {
+            width: 100%;
+            padding: 13px 14px;
+            background: var(--input-bg);
+            border: 1px solid #282828;
+            color: #ffffff;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(0, 255, 106, 0.15);
+        }
+
+        /* Phone Input with Country Code */
+        .phone-input-group {
+            display: flex;
+            gap: 8px;
+            align-items: stretch;
+        }
+        .country-code-select {
+            width: 112px;
+            flex-shrink: 0;
+            padding: 13px 26px 13px 10px !important;
+            background-position: right 0.55rem center !important;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        .phone-number-input {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .input-hint {
+            font-size: 0.72rem;
+            color: #ff4d4d;
+            margin-top: 5px;
+            display: none;
+            line-height: 1.3;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 0.9em;
+        }
+        select.form-control option {
+            background: #141414;
+            color: #fff;
+        }
+
+        /* STEPPER TIMELINE PRO UX */
+        .steps-container { margin-top: 20px; text-align: left; }
+        .step-item {
+            display: flex; gap: 14px; margin-bottom: 24px;
+            opacity: 0; transform: translateY(12px); animation: fadeInUp 0.4s forwards;
+            position: relative;
+        }
+        .step-number {
+            flex-shrink: 0; width: 44px; height: 44px;
+            background: #181818; border: 1px solid #333;
+            color: var(--accent); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1.1rem;
+            position: relative; z-index: 2;
+        }
+        .step-item.active .step-number {
+            background: #25D366; color: #ffffff; border-color: #25D366;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+        }
+        .step-item:not(:last-child)::after {
+            content: ''; position: absolute; top: 44px; left: 22px; transform: translateX(-50%);
+            width: 2px; height: calc(100% - 6px); background: #222222; z-index: 1;
+        }
+        
+        .step-content { padding-top: 2px; }
+        .step-content h4 { color: #ffffff; font-size: 1.02rem; margin-bottom: 4px; font-weight: 700; }
+        .step-content p { color: #d0d0d0; font-size: 0.88rem; line-height: 1.45; }
+
+        /* Commitment Box */
+        .commitment-box {
+            background: rgba(255, 0, 0, 0.1); border: 1px solid #ff3b3b;
+            padding: 14px; border-radius: 12px; margin-top: 20px;
+            color: #ffb3b3; font-weight: 800; text-transform: uppercase;
+            font-size: 0.82rem; letter-spacing: 0.8px;
+            text-align: center;
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.35); } 70% { box-shadow: 0 0 0 8px rgba(255, 59, 59, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0); } }
+
+        #confetti { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 100%; height: 100%; }
+
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        footer { text-align: center; padding: 20px 10px; color: #777777; font-size: 0.78rem; margin-top: auto; }
+        
+        @media(min-width: 768px) {
+            .success-card { padding: 45px 55px; }
+            .form-container { padding: 28px; }
+            .form-row { flex-direction: row; gap: 16px; }
+            .container { width: 90%; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="confetti"></canvas>
+    <canvas id="particles-js"></canvas>
+
+    <div class="container text-center">
+        <div class="success-card">
+            
+            <div class="checkmark-circle">
+                <div class="background"></div>
+                <div class="checkmark"></div>
+            </div>
+
+            <h1 class="uppercase text-bold" style="font-size: 1.6rem; margin-bottom: 6px; letter-spacing: -0.5px;">
+                You're <span class="text-accent">Officially In!</span>
+            </h1>
+            <p class="text-muted" style="font-size: 0.88rem; color: #cccccc;">Payment Successful. Welcome to the Ultimate Fitness Squad.</p>
+
+            <div style="margin: 20px auto; height: 1px; width: 40%; background: #222;"></div>
+
+            <!-- ==============================================
+                 ONBOARDING FORM SECTION
+            =============================================== -->
+            <div class="form-container" id="formSectionWrapper">
+                <h3 class="uppercase text-accent">Step 1: Complete Your Profile</h3>
+                <p class="text-center text-muted" style="margin-bottom: 18px; font-size: 0.85rem; color: #b3b3b3;">We need a few details to customize your perfect plan.</p>
+                
+                <form id="onboardingForm" action="https://script.google.com/macros/s/AKfycbxYRPT6U2Z3Cm2gRRwGys0DlrAGbXCU1IYnXiGML-RP7zQNwstlPMgQu2gCvypgz7_2_A/exec" method="POST" target="hidden_iframe">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" class="form-control" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp Number *</label>
+                            <div class="phone-input-group">
+                                <select class="form-control country-code-select" id="countryCode" aria-label="Country Code"></select>
+                                <input type="tel" class="form-control phone-number-input" id="whatsappInput" placeholder="9876543210" inputmode="numeric" required>
+                            </div>
+                            <input type="hidden" id="whatsappFull" name="whatsapp">
+                            <span class="input-hint" id="whatsappWarning">⚠️ Enter a valid WhatsApp number.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Age (18 - 110) *</label>
+                            <input type="number" class="form-control" id="ageInput" name="age" placeholder="e.g. 28" min="18" max="110" required>
+                            <span class="input-hint" id="ageWarning">⚠️ Age must be between 18 and 110.</span>
+                        </div>
+                        <div class="form-group">
+                            <label>City (Optional)</label>
+                            <input type="text" class="form-control" name="city" placeholder="Your current city">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Current Height *</label>
+                            <input type="text" class="form-control" id="heightInput" name="height" placeholder="e.g. 5'8&quot; or 175 cm" required>
+                            <span class="input-hint" id="heightWarning">⚠️ Enter valid height (e.g. 5'8", 175cm).</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Current Weight (30kg - 550kg) *</label>
+                            <input type="text" class="form-control" id="weightInput" name="weight" placeholder="e.g. 75 kg" required>
+                            <span class="input-hint" id="weightWarning">⚠️ Enter valid weight (30kg - 550kg).</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Targeted Weight (30kg - 550kg) *</label>
+                            <input type="text" class="form-control" id="targetWeightInput" name="targeted_weight" placeholder="e.g. 68 kg" required>
+                            <span class="input-hint" id="targetWeightWarning">⚠️ Enter valid target weight.</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Dietary Preference *</label>
+                            <select class="form-control" name="diet" required>
+                                <option value="" disabled selected>Select an option...</option>
+                                <option value="Veg">Vegetarian</option>
+                                <option value="Non-Veg">Non-Vegetarian</option>
+                                <option value="Veg + Non-Veg">Vegetarian + Non-Vegetarian</option>
+                                <option value="Vegan">Vegan</option>
+                                <option value="Eggetarian">Eggetarian</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Fitness Goal *</label>
+                            <select class="form-control" name="goal" required>
+                                <option value="" disabled selected>Select an option...</option>
+                                <option value="Weight Loss">Weight Loss</option>
+                                <option value="Muscle Gain">Muscle Gain</option>
+                                <option value="Maintenance">Maintenance / Fitness</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Stomach Measurement (Optional)</label>
+                            <input type="text" class="form-control" name="stomach_measurement" placeholder="e.g. 34 inches">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Any Medical/Body Issues? (Optional)</label>
+                        <textarea class="form-control" name="body_issues" rows="2" placeholder="e.g. Knee pain, PCOD, Lower back pain"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Any Food Allergies? (Optional)</label>
+                        <textarea class="form-control" name="allergies" rows="2" placeholder="e.g. Lactose intolerant, Nuts"></textarea>
+                    </div>
+
+                    <div class="text-center" style="margin-top: 20px;">
+                        <button type="submit" id="submitBtn" class="btn-primary">Submit My Profile</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Hidden Iframe kept outside formSectionWrapper so hiding the form never cancels the request -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+            <!-- THANK YOU / WHATSAPP WORKFLOW CONTAINER (Hidden Initially) -->
+            <div id="thankYouWorkflow" style="display: none; margin: 20px 0; text-align: left;">
+                <div style="background: rgba(0, 255, 106, 0.05); border: 1px solid var(--accent); padding: 20px 16px; border-radius: 16px; text-align: center;">
+                    <h3 class="uppercase text-accent" style="font-size: 1.25rem; margin-bottom: 8px; letter-spacing: -0.3px;"><i class="fas fa-check-circle"></i> Profile Received Successfully!</h3>
+                    <p class="text-muted" style="margin-bottom: 0; font-size: 0.88rem; color: #d0d0d0; line-height: 1.45;">Your personal trainer is reviewing your details to build your custom transformation blueprint.</p>
+                </div>
+
+                <h3 class="uppercase" style="margin-bottom: 18px; font-size: 1.05rem; margin-top: 25px; text-align: center; color: #ffffff;">What Happens Next?</h3>
+                
+                <div class="steps-container" style="margin-top: 0;">
+                    <div class="step-item active" style="animation-delay: 0.2s;">
+                        <div class="step-number"><i class="fab fa-whatsapp"></i></div>
+                        <div class="step-content">
+                            <h4>Check Your WhatsApp Daily</h4>
+                            <p>Your personal trainer will directly ping you on your WhatsApp chat with your customized <strong>Diet & Workout Plan</strong> very shortly.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item active" style="animation-delay: 0.4s;">
+                        <div class="step-number" style="background: #ff3b3b; color: #ffffff; border-color: #ff3b3b;"><i class="fas fa-fire"></i></div>
+                        <div class="step-content">
+                            <h4>Follow Routine & Join Live Sessions</h4>
+                            <p>Review and follow the daily milestones sent directly by your coach.</p>
+                            <p style="color: #ffffff; margin-top: 6px; font-weight: 600;"><i class="fas fa-exclamation-circle text-accent"></i> <strong>MANDATORY:</strong> You must join the Session Everyday.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commitment-box reveal delay-200">
+                    <i class="fas fa-fire"></i> RULE #1: STAY DAILY ACTIVE
+                </div>
+            </div>
+            <!-- ==============================================
+                 END FORM & WORKFLOW SECTION
+            =============================================== -->
+
+            <div style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #1f1f1f;">
+                <p style="font-size: 0.8rem; color: #888888;">Need help? <a href="mailto:support@coachmanpreet.com" style="color: #aaaaaa; text-decoration: underline;">Contact Support</a></p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Fitwithmanpreett. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Populate All Countries Worldwide (India +91 selected by default)
+        (function populateCountries() {
+            const countries = [
+                ["IN", "India", "+91"],
+                ["AF", "Afghanistan", "+93"], ["AL", "Albania", "+355"], ["DZ", "Algeria", "+213"],
+                ["AS", "American Samoa", "+1684"], ["AD", "Andorra", "+376"], ["AO", "Angola", "+244"],
+                ["AI", "Anguilla", "+1264"], ["AG", "Antigua & Barbuda", "+1268"], ["AR", "Argentina", "+54"],
+                ["AM", "Armenia", "+374"], ["AW", "Aruba", "+297"], ["AU", "Australia", "+61"],
+                ["AT", "Austria", "+43"], ["AZ", "Azerbaijan", "+994"], ["BS", "Bahamas", "+1242"],
+                ["BH", "Bahrain", "+973"], ["BD", "Bangladesh", "+880"], ["BB", "Barbados", "+1246"],
+                ["BY", "Belarus", "+375"], ["BE", "Belgium", "+32"], ["BZ", "Belize", "+501"],
+                ["BJ", "Benin", "+229"], ["BM", "Bermuda", "+1441"], ["BT", "Bhutan", "+975"],
+                ["BO", "Bolivia", "+591"], ["BA", "Bosnia & Herzegovina", "+387"], ["BW", "Botswana", "+267"],
+                ["BR", "Brazil", "+55"], ["BN", "Brunei", "+673"], ["BG", "Bulgaria", "+359"],
+                ["BF", "Burkina Faso", "+226"], ["BI", "Burundi", "+257"], ["KH", "Cambodia", "+855"],
+                ["CM", "Cameroon", "+237"], ["CA", "Canada", "+1"], ["CV", "Cape Verde", "+238"],
+                ["KY", "Cayman Islands", "+1345"], ["CF", "Central African Republic", "+236"], ["TD", "Chad", "+235"],
+                ["CL", "Chile", "+56"], ["CN", "China", "+86"], ["CO", "Colombia", "+57"],
+                ["KM", "Comoros", "+269"], ["CG", "Congo - Brazzaville", "+242"], ["CD", "Congo - Kinshasa", "+243"],
+                ["CK", "Cook Islands", "+682"], ["CR", "Costa Rica", "+506"], ["CI", "Côte d’Ivoire", "+225"],
+                ["HR", "Croatia", "+385"], ["CU", "Cuba", "+53"], ["CW", "Curaçao", "+599"],
+                ["CY", "Cyprus", "+357"], ["CZ", "Czechia", "+420"], ["DK", "Denmark", "+45"],
+                ["DJ", "Djibouti", "+253"], ["DM", "Dominica", "+1767"], ["DO", "Dominican Republic", "+1809"],
+                ["EC", "Ecuador", "+593"], ["EG", "Egypt", "+20"], ["SV", "El Salvador", "+503"],
+                ["GQ", "Equatorial Guinea", "+240"], ["ER", "Eritrea", "+291"], ["EE", "Estonia", "+372"],
+                ["SZ", "Eswatini", "+268"], ["ET", "Ethiopia", "+251"], ["FJ", "Fiji", "+679"],
+                ["FI", "Finland", "+358"], ["FR", "France", "+33"], ["GF", "French Guiana", "+594"],
+                ["PF", "French Polynesia", "+689"], ["GA", "Gabon", "+241"], ["GM", "Gambia", "+220"],
+                ["GE", "Georgia", "+995"], ["DE", "Germany", "+49"], ["GH", "Ghana", "+233"],
+                ["GI", "Gibraltar", "+350"], ["GR", "Greece", "+30"], ["GL", "Greenland", "+299"],
+                ["GD", "Grenada", "+1473"], ["GP", "Guadeloupe", "+590"], ["GU", "Guam", "+1671"],
+                ["GT", "Guatemala", "+502"], ["GN", "Guinea", "+224"], ["GW", "Guinea-Bissau", "+245"],
+                ["GY", "Guyana", "+592"], ["HT", "Haiti", "+509"], ["HN", "Honduras", "+504"],
+                ["HK", "Hong Kong", "+852"], ["HU", "Hungary", "+36"], ["IS", "Iceland", "+354"],
+                ["ID", "Indonesia", "+62"], ["IR", "Iran", "+98"], ["IQ", "Iraq", "+964"],
+                ["IE", "Ireland", "+353"], ["IL", "Israel", "+972"], ["IT", "Italy", "+39"],
+                ["JM", "Jamaica", "+1876"], ["JP", "Japan", "+81"], ["JO", "Jordan", "+962"],
+                ["KZ", "Kazakhstan", "+7"], ["KE", "Kenya", "+254"], ["KI", "Kiribati", "+686"],
+                ["KW", "Kuwait", "+965"], ["KG", "Kyrgyzstan", "+996"], ["LA", "Laos", "+856"],
+                ["LV", "Latvia", "+371"], ["LB", "Lebanon", "+961"], ["LS", "Lesotho", "+266"],
+                ["LR", "Liberia", "+231"], ["LY", "Libya", "+218"], ["LI", "Liechtenstein", "+423"],
+                ["LT", "Lithuania", "+370"], ["LU", "Luxembourg", "+352"], ["MO", "Macao", "+853"],
+                ["MG", "Madagascar", "+261"], ["MW", "Malawi", "+265"], ["MY", "Malaysia", "+60"],
+                ["MV", "Maldives", "+960"], ["ML", "Mali", "+223"], ["MT", "Malta", "+356"],
+                ["MH", "Marshall Islands", "+692"], ["MQ", "Martinique", "+596"], ["MR", "Mauritania", "+222"],
+                ["MU", "Mauritius", "+230"], ["MX", "Mexico", "+52"], ["FM", "Micronesia", "+691"],
+                ["MD", "Moldova", "+373"], ["MC", "Monaco", "+377"], ["MN", "Mongolia", "+976"],
+                ["ME", "Montenegro", "+382"], ["MS", "Montserrat", "+1664"], ["MA", "Morocco", "+212"],
+                ["MZ", "Mozambique", "+258"], ["MM", "Myanmar", "+95"], ["NA", "Namibia", "+264"],
+                ["NR", "Nauru", "+674"], ["NP", "Nepal", "+977"], ["NL", "Netherlands", "+31"],
+                ["NC", "New Caledonia", "+687"], ["NZ", "New Zealand", "+64"], ["NI", "Nicaragua", "+505"],
+                ["NE", "Niger", "+227"], ["NG", "Nigeria", "+234"], ["KP", "North Korea", "+850"],
+                ["MK", "North Macedonia", "+389"], ["NO", "Norway", "+47"], ["OM", "Oman", "+968"],
+                ["PK", "Pakistan", "+92"], ["PW", "Palau", "+680"], ["PS", "Palestine", "+970"],
+                ["PA", "Panama", "+507"], ["PG", "Papua New Guinea", "+675"], ["PY", "Paraguay", "+595"],
+                ["PE", "Peru", "+51"], ["PH", "Philippines", "+63"], ["PL", "Poland", "+48"],
+                ["PT", "Portugal", "+351"], ["PR", "Puerto Rico", "+1787"], ["QA", "Qatar", "+974"],
+                ["RE", "Réunion", "+262"], ["RO", "Romania", "+40"], ["RU", "Russia", "+7"],
+                ["RW", "Rwanda", "+250"], ["WS", "Samoa", "+685"], ["SM", "San Marino", "+378"],
+                ["ST", "São Tomé & Príncipe", "+239"], ["SA", "Saudi Arabia", "+966"], ["SN", "Senegal", "+221"],
+                ["RS", "Serbia", "+381"], ["SC", "Seychelles", "+248"], ["SL", "Sierra Leone", "+232"],
+                ["SG", "Singapore", "+65"], ["SK", "Slovakia", "+421"], ["SI", "Slovenia", "+386"],
+                ["SB", "Solomon Islands", "+677"], ["SO", "Somalia", "+252"], ["ZA", "South Africa", "+27"],
+                ["KR", "South Korea", "+82"], ["SS", "South Sudan", "+211"], ["ES", "Spain", "+34"],
+                ["LK", "Sri Lanka", "+94"], ["KN", "St. Kitts & Nevis", "+1869"], ["LC", "St. Lucia", "+1758"],
+                ["VC", "St. Vincent & Grenadines", "+1784"], ["SD", "Sudan", "+249"], ["SR", "Suriname", "+597"],
+                ["SE", "Sweden", "+46"], ["CH", "Switzerland", "+41"], ["SY", "Syria", "+963"],
+                ["TW", "Taiwan", "+886"], ["TJ", "Tajikistan", "+992"], ["TZ", "Tanzania", "+255"],
+                ["TH", "Thailand", "+66"], ["TL", "Timor-Leste", "+670"], ["TG", "Togo", "+228"],
+                ["TO", "Tonga", "+676"], ["TT", "Trinidad & Tobago", "+1868"], ["TN", "Tunisia", "+216"],
+                ["TR", "Turkey", "+90"], ["TM", "Turkmenistan", "+993"], ["TC", "Turks & Caicos", "+1649"],
+                ["UG", "Uganda", "+256"], ["UA", "Ukraine", "+380"], ["AE", "UAE", "+971"],
+                ["GB", "UK", "+44"], ["US", "USA", "+1"], ["UY", "Uruguay", "+598"],
+                ["UZ", "Uzbekistan", "+998"], ["VU", "Vanuatu", "+678"], ["VA", "Vatican City", "+379"],
+                ["VE", "Venezuela", "+58"], ["VN", "Vietnam", "+84"], ["VG", "British Virgin Islands", "+1284"],
+                ["VI", "U.S. Virgin Islands", "+1340"], ["YE", "Yemen", "+967"], ["ZM", "Zambia", "+260"],
+                ["ZW", "Zimbabwe", "+263"]
+            ];
+
+            const select = document.getElementById('countryCode');
+            countries.forEach(([iso, name, code], index) => {
+                const opt = document.createElement('option');
+                opt.value = code;
+                opt.textContent = `${iso} ${code} (${name})`;
+                if (index === 0) opt.selected = true;
+                select.appendChild(opt);
+            });
+        })();
+
+        // Particle Background Animation
+        const canvas = document.getElementById("particles-js");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        let particles = [];
+        for(let i=0; i<15; i++) particles.push({
+            x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+            vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4, size: Math.random()*1.8
+        });
+        function animate() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            particles.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if(p.x<0||p.x>canvas.width) p.x=Math.random()*canvas.width;
+                if(p.y<0||p.y>canvas.height) p.y=Math.random()*canvas.height;
+                ctx.fillStyle='rgba(0,255,106,0.25)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Confetti Effect
+        const confettiCanvas = document.getElementById('confetti');
+        const cCtx = confettiCanvas.getContext('2d');
+        confettiCanvas.width = window.innerWidth; confettiCanvas.height = window.innerHeight;
+        
+        let confetti = [];
+        const colors = ['#00FF6A', '#ffffff', '#00cc55'];
+
+        function createConfetti() {
+            confetti = [];
+            for(let i=0; i<80; i++) {
+                confetti.push({
+                    x: Math.random() * confettiCanvas.width,
+                    y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * 7 + 3,
+                    speed: Math.random() * 4 + 2,
+                    angle: Math.random() * 360
+                });
+            }
+        }
+
+        function drawConfetti() {
+            cCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+            confetti.forEach((p, index) => {
+                p.y += p.speed;
+                p.angle += 2;
+                cCtx.save();
+                cCtx.translate(p.x, p.y);
+                cCtx.rotate(p.angle * Math.PI / 180);
+                cCtx.fillStyle = p.color;
+                cCtx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+                cCtx.restore();
+                if(p.y > confettiCanvas.height) confetti.splice(index, 1);
+            });
+            if(confetti.length > 0) requestAnimationFrame(drawConfetti);
+        }
+
+        // Strict Validation & Fast Direct Google Sheets Submission
+        const form = document.getElementById('onboardingForm');
+        const formSectionWrapper = document.getElementById('formSectionWrapper');
+        const thankYouWorkflow = document.getElementById('thankYouWorkflow');
+        const submitBtn = document.getElementById('submitBtn');
+
+        const countryCodeSelect = document.getElementById('countryCode');
+        const whatsappInput = document.getElementById('whatsappInput');
+        const whatsappFull = document.getElementById('whatsappFull');
+        const whatsappWarning = document.getElementById('whatsappWarning');
+        const ageInput = document.getElementById('ageInput');
+        const ageWarning = document.getElementById('ageWarning');
+        const heightInput = document.getElementById('heightInput');
+        const heightWarning = document.getElementById('heightWarning');
+        const weightInput = document.getElementById('weightInput');
+        const weightWarning = document.getElementById('weightWarning');
+        const targetWeightInput = document.getElementById('targetWeightInput');
+        const targetWeightWarning = document.getElementById('targetWeightWarning');
+
+        function getCleanLocalDigits() {
+            return whatsappInput.value.replace(/\D/g, '').replace(/^0+/, '');
+        }
+
+        function validateWhatsApp() {
+            const digits = getCleanLocalDigits();
+            const codeDigits = countryCodeSelect.value.replace(/\D/g, '');
+            const totalLength = codeDigits.length + digits.length;
+            const isIndia = countryCodeSelect.value === '+91';
+            const isRepeating = digits.length >= 6 && /^(\d)\1+$/.test(digits);
+
+            if (isIndia) {
+                whatsappWarning.textContent = '⚠️ Enter a valid 10-digit WhatsApp number.';
+                if (digits.length !== 10 || isRepeating) {
+                    whatsappWarning.style.display = 'block';
+                    return false;
+                }
+            } else {
+                whatsappWarning.textContent = '⚠️ Enter a valid WhatsApp number.';
+                if (digits.length < 5 || totalLength < 8 || totalLength > 15 || isRepeating) {
+                    whatsappWarning.style.display = 'block';
+                    return false;
+                }
+            }
+
+            whatsappWarning.style.display = 'none';
+            return true;
+        }
+
+        whatsappInput.addEventListener('input', () => {
+            whatsappInput.value = whatsappInput.value.replace(/[^\d\s-]/g, '');
+            validateWhatsApp();
+        });
+
+        countryCodeSelect.addEventListener('change', () => {
+            if (whatsappInput.value.trim() !== '') {
+                validateWhatsApp();
+            }
+        });
+
+        ageInput.addEventListener('input', () => {
+            let val = parseInt(ageInput.value);
+            if (isNaN(val) || val < 18 || val > 110) {
+                ageWarning.style.display = 'block';
+            } else {
+                ageWarning.style.display = 'none';
+            }
+        });
+
+        heightInput.addEventListener('input', () => {
+            let val = heightInput.value.trim();
+            const hasNumber = /\d/.test(val);
+            const isSpam = /^(\d)\1+$/.test(val.replace(/\D/g, ''));
+            if (!hasNumber || isSpam || val.length < 2) {
+                heightWarning.style.display = 'block';
+            } else {
+                heightWarning.style.display = 'none';
+            }
+        });
+
+        function extractWeightNumber(str) {
+            let match = str.match(/(\d+(\.\d+)?)/);
+            return match ? parseFloat(match[0]) : null;
+        }
+
+        weightInput.addEventListener('input', () => {
+            let valStr = weightInput.value.trim();
+            let num = extractWeightNumber(valStr);
+            let digitsOnly = valStr.replace(/\D/g, '');
+            let isRepeating = /^(\d)\1{3,}$/.test(digitsOnly);
+
+            if (num === null || num < 30 || num > 550 || isRepeating) {
+                weightWarning.style.display = 'block';
+            } else {
+                weightWarning.style.display = 'none';
+            }
+        });
+
+        targetWeightInput.addEventListener('input', () => {
+            let valStr = targetWeightInput.value.trim();
+            let num = extractWeightNumber(valStr);
+            let digitsOnly = valStr.replace(/\D/g, '');
+            let isRepeating = /^(\d)\1{3,}$/.test(digitsOnly);
+
+            if (num === null || num < 30 || num > 550 || isRepeating) {
+                targetWeightWarning.style.display = 'block';
+            } else {
+                targetWeightWarning.style.display = 'none';
+            }
+        });
+
+        let isSubmitting = false;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (isSubmitting) return;
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            if (!validateWhatsApp()) {
+                whatsappInput.focus();
+                return;
+            }
+
+            let ageVal = parseInt(ageInput.value);
+            if (isNaN(ageVal) || ageVal < 18 || ageVal > 110) {
+                ageWarning.style.display = 'block';
+                ageInput.focus();
+                return;
+            }
+
+            let hVal = heightInput.value.trim();
+            if (!/\d/.test(hVal) || /^(\d)\1+$/.test(hVal.replace(/\D/g, '')) || hVal.length < 2) {
+                heightWarning.style.display = 'block';
+                heightInput.focus();
+                return;
+            }
+
+            let wNum = extractWeightNumber(weightInput.value);
+            let twNum = extractWeightNumber(targetWeightInput.value);
+            if (wNum === null || wNum < 30 || wNum > 550 || twNum === null || twNum < 30 || twNum > 550) {
+                alert('Please enter realistic current and targeted weights (between 30kg and 550kg).');
+                return;
+            }
+
+            // Combine country code + clean local digits (leading 0 stripped) into hidden 'whatsapp' field
+            whatsappFull.value = countryCodeSelect.value + getCleanLocalDigits();
+
+            isSubmitting = true;
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Submitting...';
+
+            // Native background POST to hidden iframe (100% reliable with Google Apps Script)
+            form.submit();
+
+            // Instant smooth transition without blocking on Google's redirect
+            setTimeout(() => {
+                finalizeSubmissionUI();
+            }, 350);
+        });
+
+        function finalizeSubmissionUI() {
+            formSectionWrapper.style.display = 'none';
+            thankYouWorkflow.style.display = 'block';
+
+            createConfetti();
+            drawConfetti();
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
