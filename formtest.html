@@ -19,8 +19,7 @@
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+t.src=v;s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1415678120140779');
 fbq('track', 'PageView');
@@ -84,13 +83,6 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         }
         .btn-primary:active { transform: scale(0.98); }
         .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-        .btn-secondary {
-            background: transparent; border: 1px solid #333;
-            color: #fff; padding: 12px 20px; border-radius: 50px;
-            font-weight: 600; text-decoration: none; display: inline-block;
-            font-size: 0.85rem; transition: all 0.3s;
-        }
 
         /* -----------------------------------------------------------
             CARD & PRO MOBILE LAYOUT
@@ -171,6 +163,25 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             border-color: var(--accent);
             box-shadow: 0 0 10px rgba(0, 255, 106, 0.15);
         }
+
+        /* Phone Input with Country Code */
+        .phone-input-group {
+            display: flex;
+            gap: 8px;
+            align-items: stretch;
+        }
+        .country-code-select {
+            width: 112px;
+            flex-shrink: 0;
+            padding: 13px 26px 13px 10px !important;
+            background-position: right 0.55rem center !important;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        .phone-number-input {
+            flex: 1;
+            min-width: 0;
+        }
         
         .form-row {
             display: flex;
@@ -200,28 +211,6 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             background: #141414;
             color: #fff;
         }
-
-        /* Review Modal Styles */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.92); z-index: 10000;
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
-            padding: 15px;
-        }
-        .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-box {
-            background: #141414; border: 1px solid var(--accent);
-            width: 100%; max-width: 440px; border-radius: 18px; padding: 22px 18px;
-            text-align: left; max-height: 85vh; overflow-y: auto;
-            box-shadow: 0 0 35px rgba(0,255,106,0.25);
-        }
-        .modal-box h3 { color: var(--accent); margin-bottom: 10px; font-size: 1.15rem; text-align: center; }
-        .review-list { margin-bottom: 18px; font-size: 0.85rem; color: #e0e0e0; }
-        .review-item { padding: 8px 0; border-bottom: 1px solid #222; display: flex; justify-content: space-between; gap: 12px; }
-        .review-item span:first-child { color: #aaaaaa; font-weight: 600; flex-shrink: 0; }
-        .review-item span:last-child { color: #ffffff; text-align: right; word-break: break-word; font-weight: 500; }
-        .modal-buttons { display: flex; gap: 10px; }
 
         /* STEPPER TIMELINE PRO UX */
         .steps-container { margin-top: 20px; text-align: left; }
@@ -303,7 +292,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 <h3 class="uppercase text-accent">Step 1: Complete Your Profile</h3>
                 <p class="text-center text-muted" style="margin-bottom: 18px; font-size: 0.85rem; color: #b3b3b3;">We need a few details to customize your perfect plan.</p>
                 
-                <form id="onboardingForm" action="https://script.google.com/macros/s/AKfycbxYRPT6U2Z3Cm2gRRwGys0DlrAGbXCU1IYnXiGML-RP7zQNwstlPMgQu2gCvypgz7_2_A/exec" method="POST" target="hidden_iframe">
+                <form id="onboardingForm">
                     <div class="form-row">
                         <div class="form-group">
                             <label>Full Name *</label>
@@ -311,8 +300,34 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                         </div>
                         <div class="form-group">
                             <label>WhatsApp Number *</label>
-                            <input type="tel" class="form-control" id="whatsappInput" name="whatsapp" value="+91" placeholder="+919876543210" required>
-                            <span class="input-hint" id="whatsappWarning">⚠️ Enter valid +91 number & 10 correct digits.</span>
+                            <div class="phone-input-group">
+                                <select class="form-control country-code-select" id="countryCode" aria-label="Country Code">
+                                    <option value="+91" selected>IN +91</option>
+                                    <option value="+1">US/CA +1</option>
+                                    <option value="+44">UK +44</option>
+                                    <option value="+971">UAE +971</option>
+                                    <option value="+61">AU +61</option>
+                                    <option value="+65">SG +65</option>
+                                    <option value="+966">SA +966</option>
+                                    <option value="+974">QA +974</option>
+                                    <option value="+965">KW +965</option>
+                                    <option value="+968">OM +968</option>
+                                    <option value="+973">BH +973</option>
+                                    <option value="+49">DE +49</option>
+                                    <option value="+33">FR +33</option>
+                                    <option value="+31">NL +31</option>
+                                    <option value="+353">IE +353</option>
+                                    <option value="+64">NZ +64</option>
+                                    <option value="+60">MY +60</option>
+                                    <option value="+977">NP +977</option>
+                                    <option value="+880">BD +880</option>
+                                    <option value="+94">LK +94</option>
+                                    <option value="+27">ZA +27</option>
+                                </select>
+                                <input type="tel" class="form-control phone-number-input" id="whatsappInput" placeholder="9876543210" inputmode="numeric" required>
+                            </div>
+                            <input type="hidden" id="whatsappFull" name="whatsapp">
+                            <span class="input-hint" id="whatsappWarning">⚠️ Enter a valid 10-digit WhatsApp number.</span>
                         </div>
                     </div>
 
@@ -353,6 +368,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                                 <option value="" disabled selected>Select an option...</option>
                                 <option value="Veg">Vegetarian</option>
                                 <option value="Non-Veg">Non-Vegetarian</option>
+                                <option value="Veg + Non-Veg">Vegetarian + Non-Vegetarian</option>
                                 <option value="Vegan">Vegan</option>
                                 <option value="Eggetarian">Eggetarian</option>
                             </select>
@@ -386,13 +402,10 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                     </div>
 
                     <div class="text-center" style="margin-top: 20px;">
-                        <button type="button" id="reviewBtn" class="btn-primary">Review My Details</button>
+                        <button type="submit" id="submitBtn" class="btn-primary">Submit My Profile</button>
                     </div>
                 </form>
             </div>
-
-            <!-- Hidden Iframe to handle background Google Sheet POST requests without CORS errors -->
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){ finalizeSubmissionUI(); }"></iframe>
 
             <!-- THANK YOU / WHATSAPP WORKFLOW CONTAINER (Hidden Initially) -->
             <div id="thankYouWorkflow" style="display: none; margin: 20px 0; text-align: left;">
@@ -434,19 +447,6 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 <p style="font-size: 0.8rem; color: #888888;">Need help? <a href="mailto:support@coachmanpreet.com" style="color: #aaaaaa; text-decoration: underline;">Contact Support</a></p>
             </div>
 
-        </div>
-    </div>
-
-    <!-- Review Confirmation Modal -->
-    <div class="modal-overlay" id="reviewModal">
-        <div class="modal-box">
-            <h3>Review Your Details</h3>
-            <p style="font-size: 0.8rem; color: #b3b3b3; text-align: center; margin-bottom: 12px;">Please verify your data before final submission.</p>
-            <div class="review-list" id="reviewContent"></div>
-            <div class="modal-buttons">
-                <button type="button" class="btn-secondary" id="editBtn" style="flex:1; margin-top:0; padding:12px;">Edit Details</button>
-                <button type="button" class="btn-primary" id="confirmSubmitBtn" style="flex:1; max-width:none; padding:12px; font-size:0.85rem;">Submit</button>
-            </div>
         </div>
     </div>
 
@@ -514,18 +514,16 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             if(confetti.length > 0) requestAnimationFrame(drawConfetti);
         }
 
-        // Strict Validation & Spam Prevention Logic
+        // Strict Validation & Fast Direct Google Sheets Submission
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxYRPT6U2Z3Cm2gRRwGys0DlrAGbXCU1IYnXiGML-RP7zQNwstlPMgQu2gCvypgz7_2_A/exec';
         const form = document.getElementById('onboardingForm');
         const formSectionWrapper = document.getElementById('formSectionWrapper');
         const thankYouWorkflow = document.getElementById('thankYouWorkflow');
-        const reviewBtn = document.getElementById('reviewBtn');
-        const reviewModal = document.getElementById('reviewModal');
-        const reviewContent = document.getElementById('reviewContent');
-        const editBtn = document.getElementById('editBtn');
-        const confirmSubmitBtn = document.getElementById('confirmSubmitBtn');
+        const submitBtn = document.getElementById('submitBtn');
 
+        const countryCodeSelect = document.getElementById('countryCode');
         const whatsappInput = document.getElementById('whatsappInput');
+        const whatsappFull = document.getElementById('whatsappFull');
         const whatsappWarning = document.getElementById('whatsappWarning');
         const ageInput = document.getElementById('ageInput');
         const ageWarning = document.getElementById('ageWarning');
@@ -536,21 +534,37 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         const targetWeightInput = document.getElementById('targetWeightInput');
         const targetWeightWarning = document.getElementById('targetWeightWarning');
 
-        whatsappInput.addEventListener('focus', () => {
-            if (!whatsappInput.value.startsWith('+91')) {
-                whatsappInput.value = '+91';
+        function validateWhatsApp() {
+            const digits = whatsappInput.value.replace(/\D/g, '');
+            const isIndia = countryCodeSelect.value === '+91';
+            const isRepeating = digits.length >= 7 && /^(\d)\1+$/.test(digits);
+
+            if (isIndia) {
+                whatsappWarning.textContent = '⚠️ Enter a valid 10-digit WhatsApp number.';
+                if (digits.length !== 10 || isRepeating) {
+                    whatsappWarning.style.display = 'block';
+                    return false;
+                }
+            } else {
+                whatsappWarning.textContent = '⚠️ Enter a valid WhatsApp number (7–15 digits).';
+                if (digits.length < 7 || digits.length > 15 || isRepeating) {
+                    whatsappWarning.style.display = 'block';
+                    return false;
+                }
             }
-        });
+
+            whatsappWarning.style.display = 'none';
+            return true;
+        }
 
         whatsappInput.addEventListener('input', () => {
-            if (!whatsappInput.value.startsWith('+91')) {
-                whatsappInput.value = '+91' + whatsappInput.value.replace(/^\+91/, '');
-            }
-            let digits = whatsappInput.value.replace('+91', '').replace(/\D/g, '');
-            if (digits.length !== 10 || /^(\d)\1{9}$/.test(digits)) {
-                whatsappWarning.style.display = 'block';
-            } else {
-                whatsappWarning.style.display = 'none';
+            whatsappInput.value = whatsappInput.value.replace(/[^\d\s-]/g, '');
+            validateWhatsApp();
+        });
+
+        countryCodeSelect.addEventListener('change', () => {
+            if (whatsappInput.value.trim() !== '') {
+                validateWhatsApp();
             }
         });
 
@@ -605,24 +619,33 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             }
         });
 
-        reviewBtn.addEventListener('click', () => {
+        let isSubmitting = false;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (isSubmitting) return;
+
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
 
-            let wpDigits = whatsappInput.value.replace('+91', '').replace(/\D/g, '');
-            if (wpDigits.length !== 10 || /^(\d)\1{9}$/.test(wpDigits)) {
-                whatsappWarning.style.display = 'block';
-                alert('Please provide a valid 10-digit WhatsApp number.');
+            if (!validateWhatsApp()) {
                 whatsappInput.focus();
                 return;
             }
 
             let ageVal = parseInt(ageInput.value);
             if (isNaN(ageVal) || ageVal < 18 || ageVal > 110) {
-                alert('Age must be between 18 and 110.');
+                ageWarning.style.display = 'block';
                 ageInput.focus();
+                return;
+            }
+
+            let hVal = heightInput.value.trim();
+            if (!/\d/.test(hVal) || /^(\d)\1+$/.test(hVal.replace(/\D/g, '')) || hVal.length < 2) {
+                heightWarning.style.display = 'block';
+                heightInput.focus();
                 return;
             }
 
@@ -633,47 +656,27 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 return;
             }
 
-            // Populate Review Modal
-            const formData = new FormData(form);
-            let htmlHTML = '';
-            const labels = {
-                'name': 'Full Name',
-                'whatsapp': 'WhatsApp Number',
-                'age': 'Age',
-                'city': 'City',
-                'height': 'Current Height',
-                'weight': 'Current Weight',
-                'targeted_weight': 'Targeted Weight',
-                'diet': 'Dietary Preference',
-                'goal': 'Fitness Goal',
-                'stomach_measurement': 'Stomach Measurement',
-                'body_issues': 'Body Issues',
-                'allergies': 'Food Allergies'
-            };
+            // Combine country code + clean digits into the hidden 'whatsapp' field
+            const cleanDigits = whatsappInput.value.replace(/\D/g, '');
+            whatsappFull.value = countryCodeSelect.value + cleanDigits;
 
-            for (let [key, value] of formData.entries()) {
-                if (value && value.trim() !== '' && value.trim() !== '+91') {
-                    htmlHTML += `<div class="review-item"><span>${labels[key] || key}:</span><span>${value}</span></div>`;
-                }
-            }
-            reviewContent.innerHTML = htmlHTML;
-            reviewModal.classList.add('active');
-        });
+            isSubmitting = true;
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Submitting...';
 
-        editBtn.addEventListener('click', () => {
-            reviewModal.classList.remove('active');
-        });
+            // Fast background POST to Google Sheets (matches native form encoding + survives tab close)
+            const payload = new URLSearchParams(new FormData(form));
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                keepalive: true,
+                body: payload
+            }).catch(() => {});
 
-        let submitted = false;
-
-        confirmSubmitBtn.addEventListener('click', () => {
-            confirmSubmitBtn.disabled = true;
-            confirmSubmitBtn.innerText = 'Submitting...';
-            reviewModal.classList.remove('active');
-            
-            submitted = true;
-            // Native background form post to hidden iframe and Google Sheet
-            form.submit();
+            // Instant smooth transition without blocking on Google Apps Script redirect
+            setTimeout(() => {
+                finalizeSubmissionUI();
+            }, 250);
         });
 
         function finalizeSubmissionUI() {
