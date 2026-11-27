@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>7-Day Progress Check | Fitwithmanpreett</title>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="fit-with-manpreet-favicon.png">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -29,7 +26,6 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
 
     <style>
         :root {
@@ -642,9 +638,6 @@
                 <div class="signoff">Consistency rakhein, results zaroor milenge. ❤️</div>
             </div>
 
-            <!-- ==============================================
-                 FORM SECTION (DIRECT INSTANT SUBMIT)
-            =============================================== -->
             <div class="form-shell" id="formSectionWrapper">
                 <form id="weeklyTrackerForm" action="https://script.google.com/macros/s/AKfycbxptg954WYkDVw9WMTgq2__R7SrqQsmjjJlJcn9ebQaX9ph-hv9ZxEUnuUBjf5LpEVZ/exec" method="POST" target="hidden_iframe">
                     <input type="hidden" name="form_type" value="weekly_tracking">
@@ -710,7 +703,6 @@
                         <span>02</span>
                     </div>
 
-                    <!-- Q1 -->
                     <div class="form-row">
                         <div class="form-group">
                             <label><span class="q-num">1.</span> Starting Weight <span class="unit-pill">(kg)</span> *</label>
@@ -723,19 +715,16 @@
                     </div>
                     <div class="field-error" id="weightWarning" style="margin-top: -10px; margin-bottom: 12px;">Enter valid weights between 30 kg and 550 kg.</div>
 
-                    <!-- Q2 (Any value allowed) -->
                     <div class="form-group">
                         <label><span class="q-num">2.</span> Waist Measurement: Kya aapki waist measurement mein koi change aaya hai? *</label>
                         <input type="text" class="form-control" id="waistInput" name="waist_inches" placeholder="Enter anything, e.g. 33.5 inches, -1 inch, same..." required>
                     </div>
 
-                    <!-- Q3 -->
                     <div class="form-group">
                         <label><span class="q-num">3.</span> Body Changes: Kya aapko body mein koi visible change feel hua hai? (Face fat, belly fat, bloating, body shape etc.) *</label>
                         <textarea class="form-control" id="bodyChangesInput" name="body_changes" rows="2" placeholder="e.g. Face looks less puffy, belly feels flatter, clothes fit looser..." required></textarea>
                     </div>
 
-                    <!-- Q4 -->
                     <div class="form-group">
                         <label><span class="q-num">4.</span> Energy Levels: Din bhar aapki energy kaisi rahi? Pehle se better, same ya low? *</label>
                         <select class="form-control" id="energyLevelInput" name="energy_level" required>
@@ -748,7 +737,6 @@
                         </select>
                     </div>
 
-                    <!-- Q5 -->
                     <div class="form-group">
                         <label><span class="q-num">5.</span> Hunger &amp; Cravings: Diet follow karte hue bhookh aur cravings kitni control mein rahi? *</label>
                         <select class="form-control" id="hungerControlInput" name="hunger_cravings" required>
@@ -760,7 +748,6 @@
                         </select>
                     </div>
 
-                    <!-- Q6 -->
                     <div class="form-group">
                         <label><span class="q-num">6.</span> Digestion: Gas, bloating, constipation ya digestion mein koi improvement hua? *</label>
                         <select class="form-control" id="digestionInput" name="digestion_status" required>
@@ -772,7 +759,6 @@
                         </select>
                     </div>
 
-                    <!-- Q7 -->
                     <div class="form-group">
                         <label><span class="q-num">7.</span> Diet Follow-up: Aapne pichhle 7 days mein diet kitni consistently follow ki? *</label>
                         <select class="form-control" id="dietConsistencyInput" name="diet_consistency" required>
@@ -784,7 +770,6 @@
                         </select>
                     </div>
 
-                    <!-- Q8 -->
                     <div class="form-row">
                         <div class="form-group">
                             <label><span class="q-num">8.</span> Workout Completion <span class="unit-pill">(in this week)</span> *</label>
@@ -808,7 +793,6 @@
                         </div>
                     </div>
 
-                    <!-- Q9 -->
                     <div class="form-group">
                         <label><span class="q-num">9.</span> Water Intake: Kya aap daily recommended water intake complete kar paa rahe hain? *</label>
                         <select class="form-control" id="waterIntakeInput" name="water_intake" required>
@@ -820,13 +804,11 @@
                         </select>
                     </div>
 
-                    <!-- Q10 -->
                     <div class="form-group">
                         <label><span class="q-num">10.</span> Overall Progress: Aapko pichhle 7 days mein apne andar kya best improvement dikhi? *</label>
                         <textarea class="form-control" id="overallImprovementInput" name="overall_improvement" rows="2" placeholder="Write the strongest positive change you noticed this week..." required></textarea>
                     </div>
 
-                    <!-- Progress Pictures & Current Weight Image -->
                     <div class="media-box">
                         <div class="media-box-head"><i class="fas fa-camera"></i> Progress Pictures &amp; Current Weight Share</div>
                         <p>
@@ -844,16 +826,12 @@
                 </form>
             </div>
 
-            <!-- Hidden Iframe fallback for Google Sheet submission -->
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-            <!-- ==============================================
-                 COACHING EVALUATION REPORT (SHOWN INSTANTLY ON SUBMIT)
-            =============================================== -->
             <div class="report-wrapper" id="analysisReport">
                 <div class="eval-banner">
                     <div class="eval-status-row">
-                        <span class="status-tag"><i class="fas fa-check"></i> Check-In Saved to Sheet</span>
+                        <span class="status-tag"><i class="fas fa-check"></i> Check-In Submitted</span>
                         <span class="sync-tag" id="syncStatusIndicator"><i class="fas fa-cloud-arrow-up"></i> Syncing...</span>
                     </div>
                     <h2 id="reportMemberName">Weekly Evaluation</h2>
@@ -886,7 +864,6 @@
                     </div>
                 </div>
 
-                <!-- BMI Health Range Visual -->
                 <div class="panel-card">
                     <div class="panel-head">
                         <span>BMI Reference &amp; Healthy Weight Range</span>
@@ -903,7 +880,6 @@
                     </div>
                 </div>
 
-                <!-- Weekly Adherence Breakdown -->
                 <div class="panel-card">
                     <div class="panel-head">
                         <span>Weekly Execution Index</span>
@@ -940,7 +916,6 @@
                     </div>
                 </div>
 
-                <!-- Practical Health & Coaching Observations -->
                 <div class="panel-card">
                     <div class="panel-head">
                         <span>Coach Observations &amp; Next-Week Adjustments</span>
@@ -948,7 +923,6 @@
                     <ul class="notes-list" id="coachingNotesList"></ul>
                 </div>
 
-                <!-- Closing Target Verdict -->
                 <div class="verdict-card">
                     <div class="verdict-kicker">Target &amp; Fitness Guideline Summary</div>
                     <div class="verdict-headline" id="verdictHeadline">--</div>
@@ -971,7 +945,6 @@
     <script>
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxptg954WYkDVw9WMTgq2__R7SrqQsmjjJlJcn9ebQaX9ph-hv9ZxEUnuUBjf5LpEVZ/exec';
 
-        // Tricolor Ambient Particles
         const pCanvas = document.getElementById("particles-js");
         const pCtx = pCanvas.getContext("2d");
         pCanvas.width = window.innerWidth;
@@ -1003,7 +976,6 @@
         }
         renderDots();
 
-        // Confetti on Completion
         const cCanvas = document.getElementById('confetti');
         const cCtx = cCanvas.getContext('2d');
         cCanvas.width = window.innerWidth;
@@ -1050,7 +1022,6 @@
             cCanvas.height = window.innerHeight;
         });
 
-        // Form Elements
         const form = document.getElementById('weeklyTrackerForm');
         const hiddenIframe = document.getElementById('hidden_iframe');
         const formSectionWrapper = document.getElementById('formSectionWrapper');
@@ -1103,7 +1074,7 @@
         hiddenIframe.addEventListener('load', () => {
             if (!awaitingIframeLoad) return;
             awaitingIframeLoad = false;
-            syncStatusIndicator.innerHTML = `<i class="fas fa-check-circle"></i> Logged (${escapeHtml(lastSubmittedWhatsapp)})`;
+            syncStatusIndicator.innerHTML = `<i class="fas fa-check-circle"></i> Synced (${escapeHtml(lastSubmittedWhatsapp)})`;
         });
 
         progressMediaInput.addEventListener('change', () => {
@@ -1191,22 +1162,75 @@
                 .replace(/"/g, '&quot;');
         }
 
-        function readSelectedFilesAsBase64(fileList) {
-            const files = Array.from(fileList || []).filter(f => f.size <= 12 * 1024 * 1024);
-            if (files.length === 0) return Promise.resolve([]);
-
-            return Promise.all(files.map(file => new Promise((resolve) => {
-                const reader = new FileReader();
-                reader.onload = () => {
-                    resolve({
+        function compressImageFile(file) {
+            return new Promise((resolve) => {
+                if (!file.type.startsWith('image/')) {
+                    if (file.size > 2 * 1024 * 1024) {
+                        resolve(null);
+                        return;
+                    }
+                    const reader = new FileReader();
+                    reader.onload = () => resolve({
                         name: file.name,
                         type: file.type || 'application/octet-stream',
                         base64: String(reader.result || '')
                     });
-                };
+                    reader.onerror = () => resolve(null);
+                    reader.readAsDataURL(file);
+                    return;
+                }
+
+                const reader = new FileReader();
                 reader.onerror = () => resolve(null);
+                reader.onload = (ev) => {
+                    const img = new Image();
+                    img.onerror = () => resolve(null);
+                    img.onload = () => {
+                        const maxDim = 960;
+                        let w = img.width;
+                        let h = img.height;
+                        if (w > maxDim || h > maxDim) {
+                            if (w > h) {
+                                h = Math.round((h * maxDim) / w);
+                                w = maxDim;
+                            } else {
+                                w = Math.round((w * maxDim) / h);
+                                h = maxDim;
+                            }
+                        }
+                        const canvas = document.createElement('canvas');
+                        canvas.width = w;
+                        canvas.height = h;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, w, h);
+                        const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.72);
+                        resolve({
+                            name: file.name.replace(/\.[^.]+$/, '') + '.jpg',
+                            type: 'image/jpeg',
+                            base64: compressedDataUrl
+                        });
+                    };
+                    img.src = ev.target.result;
+                };
                 reader.readAsDataURL(file);
-            }))).then(items => items.filter(Boolean));
+            });
+        }
+
+        function readSelectedFilesAsBase64(fileList) {
+            const files = Array.from(fileList || []).slice(0, 3);
+            if (files.length === 0) return Promise.resolve([]);
+            return Promise.all(files.map(compressImageFile)).then(items => {
+                const valid = items.filter(Boolean);
+                let totalLen = 0;
+                const bounded = [];
+                for (let i = 0; i < valid.length; i++) {
+                    if (totalLen + valid[i].base64.length <= 1500000) {
+                        bounded.push(valid[i]);
+                        totalLen += valid[i].base64.length;
+                    }
+                }
+                return bounded;
+            });
         }
 
         function buildEvaluation() {
@@ -1353,35 +1377,6 @@
             awaitingIframeLoad = true;
             syncStatusIndicator.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Saving to Sheet...`;
 
-            if (window.fetch && encodedFiles.length > 0) {
-                const params = new URLSearchParams();
-                Array.from(form.elements).forEach((el) => {
-                    if (!el.name || el.type === 'file') return;
-                    if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
-                    params.append(el.name, el.value);
-                });
-
-                fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-                    },
-                    body: params.toString()
-                })
-                .then(() => {
-                    awaitingIframeLoad = false;
-                    syncStatusIndicator.innerHTML = `<i class="fas fa-check-circle"></i> Logged (${escapeHtml(evalData.whatsapp)})`;
-                })
-                .catch(() => {
-                    form.action = SCRIPT_URL;
-                    form.method = 'POST';
-                    form.target = 'hidden_iframe';
-                    form.submit();
-                });
-                return;
-            }
-
             form.action = SCRIPT_URL;
             form.method = 'POST';
             form.target = 'hidden_iframe';
@@ -1390,9 +1385,9 @@
             setTimeout(() => {
                 if (awaitingIframeLoad) {
                     awaitingIframeLoad = false;
-                    syncStatusIndicator.innerHTML = `<i class="fas fa-check-circle"></i> Logged (${escapeHtml(evalData.whatsapp)})`;
+                    syncStatusIndicator.innerHTML = `<i class="fas fa-check-circle"></i> Sent (${escapeHtml(evalData.whatsapp)})`;
                 }
-            }, 3500);
+            }, 4000);
         }
 
         function renderEvaluationReport(d) {
