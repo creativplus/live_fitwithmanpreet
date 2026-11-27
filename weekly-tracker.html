@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>7-Day Progress Check | Fitwithmanpreett</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="fit-with-manpreet-favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1415678120140779');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        :root {
+            --bg-color: #050606;
+            --surface-1: rgba(11, 13, 12, 0.92);
+            --surface-2: rgba(18, 21, 19, 0.94);
+            --surface-3: rgba(24, 28, 26, 0.95);
+            --input-bg: #080a09;
+            --text-main: #f5f7f6;
+            --text-muted: #c2cbc6;
+            --text-subtle: #87928c;
+            --accent: #00FF6A;
+            --accent-dim: rgba(0, 255, 106, 0.12);
+            --accent-border: rgba(0, 255, 106, 0.34);
+            --accent-glow: rgba(0, 255, 106, 0.28);
+            --saffron: #FF671F;
+            --tricolor-white: #F8FAFC;
+            --india-green: #046A38;
+            --line: #212724;
+            --line-strong: #2f3733;
+            --amber: #f59e0b;
+            --rose: #f43f5e;
+            --sky: #38bdf8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 12% 8%, rgba(255, 103, 31, 0.17), transparent 42%),
+                radial-gradient(circle at 50% 4%, rgba(248, 250, 252, 0.08), transparent 46%),
+                radial-gradient(circle at 88% 92%, rgba(4, 106, 56, 0.22), transparent 46%),
+                radial-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 22px 22px;
+            background-attachment: fixed;
+            color: var(--text-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 94%;
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 18px 0 28px;
+        }
+
+        .text-center { text-align: center; }
+        .text-accent { color: var(--accent); }
+        .uppercase { text-transform: uppercase; }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #050706;
+            font-weight: 800;
+            padding: 15px 22px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            box-shadow: 0 8px 24px var(--accent-glow);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+            width: 100%;
+            max-width: 360px;
+            font-size: 0.88rem;
+            letter-spacing: 0.6px;
+        }
+        .btn-primary:hover {
+            background: #1aff79;
+            box-shadow: 0 10px 28px rgba(0, 255, 106, 0.42);
+        }
+        .btn-primary:active { transform: scale(0.985); }
+        .btn-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--line-strong);
+            color: var(--text-main);
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-border);
+            color: var(--accent);
+            background: rgba(0, 255, 106, 0.04);
+        }
+
+        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.45; pointer-events: none; }
+        #confetti { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 100%; height: 100%; }
+
+        .main-card {
+            background: var(--surface-1);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 26px 16px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--saffron) 0%, var(--saffron) 33.33%, var(--tricolor-white) 33.33%, var(--tricolor-white) 66.66%, var(--india-green) 66.66%, var(--india-green) 100%);
+            opacity: 0.9;
+        }
+
+        .brand-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-dim);
+            border: 1px solid var(--accent-border);
+            padding: 6px 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .brief-card {
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--saffron);
+            border-radius: 14px;
+            padding: 15px 16px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .brief-card p {
+            font-size: 0.82rem;
+            line-height: 1.58;
+            color: var(--text-muted);
+        }
+        .brief-card strong { color: var(--text-main); }
+        .brief-card .signoff {
+            margin-top: 9px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .form-shell {
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 20px 15px;
+            text-align: left;
+        }
+
+        .block-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 24px 0 14px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.9px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+        .block-head.first {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--text-main);
+            font-size: 0.81rem;
+            font-weight: 600;
+            line-height: 1.42;
+        }
+        .q-num {
+            color: var(--saffron);
+            font-weight: 800;
+            margin-right: 5px;
+        }
+        .unit-pill {
+            color: var(--text-subtle);
+            font-weight: 600;
+            font-size: 0.73rem;
+            margin-left: 4px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--input-bg);
+            border: 1px solid var(--line-strong);
+            color: var(--text-main);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            transition: border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+        .form-control::placeholder { color: #5f6963; }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 255, 106, 0.12);
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .form-row .form-group { flex: 1; }
+
+        .phone-split {
+            display: grid;
+            grid-template-columns: 132px 1fr;
+            gap: 8px;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b8c0bc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.85rem center;
+            background-size: 0.85em;
+            padding-right: 34px;
+        }
+        select.form-control option {
+            background: #101211;
+            color: #f5f7f6;
+        }
+
+        .field-help {
+            font-size: 0.71rem;
+            color: var(--text-subtle);
+            margin-top: 5px;
+            line-height: 1.38;
+        }
+        .field-error {
+            font-size: 0.72rem;
+            color: var(--rose);
+            margin-top: 5px;
+            display: none;
+            line-height: 1.35;
+            font-weight: 600;
+        }
+
+        .media-box {
+            background: var(--surface-3);
+            border: 1px solid var(--line-strong);
+            border-radius: 14px;
+            padding: 15px 14px;
+            margin: 8px 0 18px;
+        }
+        .media-box-head {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .media-box-head i { color: var(--saffron); }
+        .media-box p {
+            font-size: 0.77rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        .file-input-control {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--input-bg);
+            border: 1px dashed var(--accent-border);
+            color: var(--text-muted);
+            border-radius: 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        .file-preview-list {
+            margin-top: 8px;
+            font-size: 0.73rem;
+            color: var(--accent);
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        /* -----------------------------------------------------------
+           COACHING EVALUATION & METRICS REPORT
+        ----------------------------------------------------------- */
+        .report-wrapper {
+            display: none;
+            text-align: left;
+            margin-top: 14px;
+            animation: fadeInUp 0.35s ease forwards;
+        }
+
+        .eval-banner {
+            background: var(--surface-2);
+            border: 1px solid var(--line-strong);
+            border-radius: 18px;
+            padding: 20px 16px;
+            margin-bottom: 14px;
+        }
+        .eval-status-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .status-tag {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border-radius: 6px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid var(--accent-border);
+        }
+        .sync-tag {
+            font-size: 0.71rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .eval-banner h2 {
+            font-size: 1.22rem;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+        .eval-banner p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 11px;
+            margin-bottom: 14px;
+        }
+        .metric-box {
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px 12px;
+        }
+        .metric-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: var(--text-subtle);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .metric-val {
+            font-size: 1.22rem;
+            font-weight: 900;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+        .metric-note {
+            font-size: 0.71rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            line-height: 1.35;
+        }
+
+        .panel-card {
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 14px;
+        }
+        .panel-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+        .panel-meta {
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .bmi-bar {
+            position: relative;
+            height: 10px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--sky) 0%, var(--sky) 23%, var(--accent) 23%, var(--accent) 52%, var(--amber) 52%, var(--amber) 76%, var(--rose) 76%, var(--rose) 100%);
+            margin: 12px 0 8px;
+        }
+        .bmi-pin {
+            position: absolute;
+            top: -4px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 3px solid #050505;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.85);
+            transform: translateX(-50%);
+            transition: left 0.65s ease;
+        }
+        .bmi-scale-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.65rem;
+            color: var(--text-subtle);
+            font-weight: 600;
+        }
+
+        .score-rail {
+            width: 100%;
+            height: 9px;
+            background: var(--line);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 14px;
+        }
+        .score-fill {
+            height: 100%;
+            width: 0;
+            background: var(--accent);
+            border-radius: 999px;
+            transition: width 0.65s ease;
+        }
+
+        .sub-metrics {
+            display: grid;
+            gap: 10px;
+        }
+        .sub-row-top {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .sub-rail {
+            height: 6px;
+            background: var(--line);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .sub-fill {
+            height: 100%;
+            width: 0;
+            background: #22c55e;
+            border-radius: 999px;
+            transition: width 0.6s ease;
+        }
+
+        .notes-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+        .notes-list li {
+            font-size: 0.79rem;
+            line-height: 1.52;
+            color: var(--text-muted);
+            padding-left: 16px;
+            position: relative;
+        }
+        .notes-list li::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            top: -1px;
+            color: var(--accent);
+            font-weight: 900;
+            font-size: 1rem;
+        }
+        .notes-list strong { color: var(--text-main); }
+
+        .verdict-card {
+            background: linear-gradient(145deg, rgba(255, 103, 31, 0.12), rgba(18, 21, 19, 0.96) 50%, rgba(4, 106, 56, 0.18));
+            border: 1px solid var(--accent-border);
+            border-radius: 16px;
+            padding: 18px 16px;
+            text-align: center;
+            margin: 14px 0 18px;
+        }
+        .verdict-kicker {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+        .verdict-headline {
+            font-size: 1.02rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.48;
+        }
+        .verdict-headline strong { color: var(--accent); }
+        .verdict-sub {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            line-height: 1.42;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            color: var(--text-subtle);
+            font-size: 0.76rem;
+            margin-top: auto;
+        }
+
+        @media (min-width: 768px) {
+            .main-card { padding: 38px 42px; }
+            .form-shell { padding: 26px; }
+            .form-row { flex-direction: row; gap: 16px; }
+            .metrics-grid { grid-template-columns: repeat(4, 1fr); }
+            .container { width: 90%; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="confetti"></canvas>
+    <canvas id="particles-js"></canvas>
+
+    <div class="container text-center">
+        <div class="main-card">
+            <div class="brand-kicker"><i class="fas fa-bolt"></i> Fitwithmanpreett Performance Check</div>
+
+            <h1 class="page-title uppercase">7-Day <span class="text-accent">Progress Check</span></h1>
+            <p class="page-subtitle">
+                Weekly body stats, habit consistency, and tailored coaching guidance built around sustainable health standards.
+            </p>
+
+            <div class="brief-card">
+                <p>
+                    <strong>7-day progress check karni hai.</strong> Please neeche diye gaye questions ka honestly answer karein taaki aapki progress properly analyse ho sake aur aage ki diet/workout mein zarurat ke according changes kiye ja sakein.
+                </p>
+                <div class="signoff">Consistency rakhein, results zaroor milenge. ❤️</div>
+            </div>
+
+            <!-- ==============================================
+                 FORM SECTION (DIRECT INSTANT SUBMIT)
+            =============================================== -->
+            <div class="form-shell" id="formSectionWrapper">
+                <form id="weeklyTrackerForm" action="https://script.google.com/macros/s/AKfycbxYRPT6U2Z3Cm2gRRwGys0DlrAGbXCU1IYnXiGML-RP7zQNwstlPMgQu2gCvypgz7_2_A/exec" method="POST" target="hidden_iframe">
+                    <input type="hidden" name="form_type" value="weekly_tracking">
+                    <input type="hidden" name="whatsapp_full" id="whatsappFullInput">
+                    <input type="hidden" name="weight_change_kg" id="weightChangeHidden">
+                    <input type="hidden" name="bmi_value" id="bmiValueHidden">
+                    <input type="hidden" name="bmi_category" id="bmiCategoryHidden">
+                    <input type="hidden" name="fit_target_message" id="fitTargetMessageHidden">
+                    <input type="hidden" name="consistency_score" id="consistencyScoreHidden">
+                    <input type="hidden" name="uploaded_media_names" id="uploadedMediaNamesHidden">
+
+                    <div class="block-head first">
+                        <span>Member Profile &amp; Targets</span>
+                        <span>01</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" class="form-control" id="fullNameInput" name="name" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Height <span class="unit-pill">(cm or ft'in")</span> *</label>
+                            <input type="text" class="form-control" id="heightInput" name="height" placeholder="e.g. 172 cm or 5'8&quot;" required>
+                            <div class="field-error" id="heightWarning">Enter a valid height (e.g. 170 cm or 5'7").</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>WhatsApp Number <span class="unit-pill">(Any Country Code)</span> *</label>
+                        <div class="phone-split">
+                            <select class="form-control" id="countryCodeSelect" name="country_code">
+                                <option value="+91" selected>🇮🇳 +91 (India)</option>
+                                <option value="+1">🇺🇸/🇨🇦 +1 (US/CA)</option>
+                                <option value="+44">🇬🇧 +44 (UK)</option>
+                                <option value="+61">🇦🇺 +61 (Australia)</option>
+                                <option value="+971">🇦🇪 +971 (UAE)</option>
+                                <option value="+64">🇳🇿 +64 (New Zealand)</option>
+                                <option value="+39">🇮🇹 +39 (Italy)</option>
+                                <option value="+49">🇩🇪 +49 (Germany)</option>
+                                <option value="+65">🇸🇬 +65 (Singapore)</option>
+                                <option value="custom">🌍 Other (+Code)</option>
+                            </select>
+                            <input type="tel" class="form-control" id="phoneNumberInput" name="phone_number" placeholder="9876543210" inputmode="numeric" required>
+                        </div>
+                        <div id="customCodeWrapper" style="display: none; margin-top: 8px;">
+                            <input type="text" class="form-control" id="customCountryCodeInput" name="custom_country_code" placeholder="Enter country code e.g. +81 or +33">
+                        </div>
+                        <div class="field-help">Select your country code or choose "Other (+Code)" for any country.</div>
+                        <div class="field-error" id="phoneWarning">Enter a valid country code and 6–15 digit WhatsApp number.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Target Weight <span class="unit-pill">(kg)</span></label>
+                        <input type="number" step="0.1" min="30" max="550" class="form-control" id="goalWeightInput" name="goal_weight_kg" placeholder="e.g. 65.0">
+                        <div class="field-error" id="goalWeightWarning">Enter target weight between 30 kg and 550 kg.</div>
+                    </div>
+
+                    <div class="block-head">
+                        <span>Weekly Check-In Questions</span>
+                        <span>02</span>
+                    </div>
+
+                    <!-- Q1 -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><span class="q-num">1.</span> Starting Weight <span class="unit-pill">(kg)</span> *</label>
+                            <input type="number" step="0.1" min="30" max="550" class="form-control" id="startingWeightInput" name="starting_weight_kg" placeholder="e.g. 78.0" required>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="q-num">1.</span> Current Weight <span class="unit-pill">(kg)</span> *</label>
+                            <input type="number" step="0.1" min="30" max="550" class="form-control" id="currentWeightInput" name="current_weight_kg" placeholder="e.g. 76.6" required>
+                        </div>
+                    </div>
+                    <div class="field-error" id="weightWarning" style="margin-top: -10px; margin-bottom: 12px;">Enter valid weights between 30 kg and 550 kg.</div>
+
+                    <!-- Q2 -->
+                    <div class="form-group">
+                        <label><span class="q-num">2.</span> Waist Measurement: Kya aapki waist measurement mein koi change aaya hai? <span class="unit-pill">(inches)</span> *</label>
+                        <input type="number" step="0.1" min="15" max="100" class="form-control" id="waistInput" name="waist_inches" placeholder="Current waist in inches, e.g. 33.5" required>
+                        <div class="field-error" id="waistWarning">Enter waist measurement between 15 and 100 inches.</div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="form-group">
+                        <label><span class="q-num">3.</span> Body Changes: Kya aapko body mein koi visible change feel hua hai? (Face fat, belly fat, bloating, body shape etc.) *</label>
+                        <textarea class="form-control" id="bodyChangesInput" name="body_changes" rows="2" placeholder="e.g. Face looks less puffy, belly feels flatter, clothes fit looser..." required></textarea>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="form-group">
+                        <label><span class="q-num">4.</span> Energy Levels: Din bhar aapki energy kaisi rahi? Pehle se better, same ya low? *</label>
+                        <select class="form-control" id="energyLevelInput" name="energy_level" required>
+                            <option value="" disabled selected>Select energy response...</option>
+                            <option value="Pehle se Much Better">Pehle se Much Better</option>
+                            <option value="Pehle se Better">Pehle se Better</option>
+                            <option value="Same">Same</option>
+                            <option value="Thodi Low">Thodi Low</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="form-group">
+                        <label><span class="q-num">5.</span> Hunger &amp; Cravings: Diet follow karte hue bhookh aur cravings kitni control mein rahi? *</label>
+                        <select class="form-control" id="hungerControlInput" name="hunger_cravings" required>
+                            <option value="" disabled selected>Select control level...</option>
+                            <option value="90-100% Controlled">90–100% Controlled</option>
+                            <option value="70-89% Controlled">70–89% Controlled</option>
+                            <option value="50-69% Controlled">50–69% Controlled</option>
+                            <option value="Below 50% / Frequent Cravings">Below 50% / Frequent Cravings</option>
+                        </select>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="form-group">
+                        <label><span class="q-num">6.</span> Digestion: Gas, bloating, constipation ya digestion mein koi improvement hua? *</label>
+                        <select class="form-control" id="digestionInput" name="digestion_status" required>
+                            <option value="" disabled selected>Select digestion status...</option>
+                            <option value="Clear Improvement (Less gas/bloating)">Clear Improvement (Less gas/bloating)</option>
+                            <option value="Moderate Improvement">Moderate Improvement</option>
+                            <option value="No Change">No Change</option>
+                            <option value="Gas / Bloating / Constipation Issue">Gas / Bloating / Constipation Issue</option>
+                        </select>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="form-group">
+                        <label><span class="q-num">7.</span> Diet Follow-up: Aapne pichhle 7 days mein diet kitni consistently follow ki? *</label>
+                        <select class="form-control" id="dietConsistencyInput" name="diet_consistency" required>
+                            <option value="" disabled selected>Select diet consistency...</option>
+                            <option value="100%">100%</option>
+                            <option value="80%">80%</option>
+                            <option value="50%">50%</option>
+                            <option value="Less than 50%">Less than 50%</option>
+                        </select>
+                    </div>
+
+                    <!-- Q8 -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><span class="q-num">8.</span> Workout Completion <span class="unit-pill">(in this week)</span> *</label>
+                            <select class="form-control" id="workoutDaysInput" name="workout_days_this_week" required>
+                                <option value="" disabled selected>Select days this week...</option>
+                                <option value="0 Days">0 Days</option>
+                                <option value="1 Day">1 Day</option>
+                                <option value="2 Days">2 Days</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="4 Days">4 Days</option>
+                                <option value="5 Days">5 Days</option>
+                                <option value="6 Days">6 Days</option>
+                                <option value="7 Days">7 Days</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><span class="q-num">8.</span> Daily Steps *</label>
+                            <input type="number" min="0" step="1" class="form-control" id="dailyStepsInput" name="daily_steps" placeholder="Enter daily steps" required>
+                            <div class="field-error" id="stepsWarning">Enter a valid number of steps (0 or more).</div>
+                        </div>
+                    </div>
+
+                    <!-- Q9 -->
+                    <div class="form-group">
+                        <label><span class="q-num">9.</span> Water Intake: Kya aap daily recommended water intake complete kar paa rahe hain? *</label>
+                        <select class="form-control" id="waterIntakeInput" name="water_intake" required>
+                            <option value="" disabled selected>Select water intake status...</option>
+                            <option value="Yes — Daily Target Complete (3L+)">Yes — Daily Target Complete (3L+)</option>
+                            <option value="Mostly Complete (2–3L/day)">Mostly Complete (2–3L/day)</option>
+                            <option value="Partially Complete (1–2L/day)">Partially Complete (1–2L/day)</option>
+                            <option value="No — Low Intake (<1L/day)">No — Low Intake (&lt;1L/day)</option>
+                        </select>
+                    </div>
+
+                    <!-- Q10 -->
+                    <div class="form-group">
+                        <label><span class="q-num">10.</span> Overall Progress: Aapko pichhle 7 days mein apne andar kya best improvement dikhi? *</label>
+                        <textarea class="form-control" id="overallImprovementInput" name="overall_improvement" rows="2" placeholder="Write the strongest positive change you noticed this week..." required></textarea>
+                    </div>
+
+                    <!-- Progress Pictures & Current Weight Image -->
+                    <div class="media-box">
+                        <div class="media-box-head"><i class="fas fa-camera"></i> Progress Pictures &amp; Current Weight Share</div>
+                        <p>
+                            Please apna current weight image aur progress pictures / videos share karein, taaki aapki progress properly analyse karke aage ki diet/workout mein zarurat ke according changes kiye ja sakein.
+                        </p>
+                        <input type="file" class="file-input-control" id="progressMediaInput" name="progress_media" accept="image/*,video/*" multiple>
+                        <div class="file-preview-list" id="filePreviewList"></div>
+                    </div>
+
+                    <div class="text-center" style="margin-top: 20px;">
+                        <button type="submit" id="submitDirectBtn" class="btn-primary">
+                            Submit &amp; Generate Report <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Hidden Iframe fallback for Google Sheet submission -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+            <!-- ==============================================
+                 COACHING EVALUATION REPORT (SHOWN INSTANTLY ON SUBMIT)
+            =============================================== -->
+            <div class="report-wrapper" id="analysisReport">
+                <div class="eval-banner">
+                    <div class="eval-status-row">
+                        <span class="status-tag"><i class="fas fa-check"></i> Check-In Saved to Sheet</span>
+                        <span class="sync-tag" id="syncStatusIndicator"><i class="fas fa-cloud-arrow-up"></i> Syncing...</span>
+                    </div>
+                    <h2 id="reportMemberName">Weekly Evaluation</h2>
+                    <p id="reportSummaryLine"></p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-label">Current Weight</div>
+                        <div class="metric-val" id="kpiCurrentWt">-- kg</div>
+                        <div class="metric-note" id="kpiStartWt">Start: -- kg</div>
+                    </div>
+
+                    <div class="metric-box">
+                        <div class="metric-label">7-Day Delta</div>
+                        <div class="metric-val" id="kpiDeltaWt">-- kg</div>
+                        <div class="metric-note" id="kpiDeltaPct">--% weekly shift</div>
+                    </div>
+
+                    <div class="metric-box">
+                        <div class="metric-label">BMI Index</div>
+                        <div class="metric-val" id="kpiBmi">--</div>
+                        <div class="metric-note" id="kpiBmiStatus">--</div>
+                    </div>
+
+                    <div class="metric-box">
+                        <div class="metric-label">Waist &amp; Workouts</div>
+                        <div class="metric-val" id="kpiWaistVal">-- in</div>
+                        <div class="metric-note" id="kpiWorkoutDaysVal">-- days/week</div>
+                    </div>
+                </div>
+
+                <!-- BMI Health Range Visual -->
+                <div class="panel-card">
+                    <div class="panel-head">
+                        <span>BMI Reference &amp; Healthy Weight Range</span>
+                        <span class="panel-meta" id="healthyRangeLabel">Target Range: -- kg</span>
+                    </div>
+                    <div class="bmi-bar">
+                        <div class="bmi-pin" id="bmiPin" style="left: 50%;"></div>
+                    </div>
+                    <div class="bmi-scale-labels">
+                        <span>&lt;18.5 Low</span>
+                        <span>18.5–24.9 Normal</span>
+                        <span>25.0–29.9 Elevated</span>
+                        <span>30.0+ High</span>
+                    </div>
+                </div>
+
+                <!-- Weekly Adherence Breakdown -->
+                <div class="panel-card">
+                    <div class="panel-head">
+                        <span>Weekly Execution Index</span>
+                        <span class="panel-meta" id="adherenceIndexText">-- / 100</span>
+                    </div>
+                    <div class="score-rail">
+                        <div class="score-fill" id="adherenceScoreFill" style="width: 0;"></div>
+                    </div>
+
+                    <div class="sub-metrics">
+                        <div>
+                            <div class="sub-row-top">
+                                <span>Diet Consistency</span>
+                                <span id="dietStatLabel">--%</span>
+                            </div>
+                            <div class="sub-rail"><div class="sub-fill" id="dietStatFill" style="width: 0;"></div></div>
+                        </div>
+
+                        <div>
+                            <div class="sub-row-top">
+                                <span>Workout Days (out of 7 days)</span>
+                                <span id="workoutStatLabel">-- / 7 days</span>
+                            </div>
+                            <div class="sub-rail"><div class="sub-fill" id="workoutStatFill" style="width: 0;"></div></div>
+                        </div>
+
+                        <div>
+                            <div class="sub-row-top">
+                                <span>Daily Steps (<span id="stepsRawText">0</span> / 8,000 benchmark)</span>
+                                <span id="stepsStatLabel">--%</span>
+                            </div>
+                            <div class="sub-rail"><div class="sub-fill" id="stepsStatFill" style="width: 0;"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practical Health & Coaching Observations -->
+                <div class="panel-card">
+                    <div class="panel-head">
+                        <span>Coach Observations &amp; Next-Week Adjustments</span>
+                    </div>
+                    <ul class="notes-list" id="coachingNotesList"></ul>
+                </div>
+
+                <!-- Closing Target Verdict -->
+                <div class="verdict-card">
+                    <div class="verdict-kicker">Target &amp; Fitness Guideline Summary</div>
+                    <div class="verdict-headline" id="verdictHeadline">--</div>
+                    <div class="verdict-sub" id="verdictSubtext">--</div>
+                </div>
+
+                <div class="text-center">
+                    <button type="button" class="btn-secondary" id="newCheckinBtn">
+                        <i class="fas fa-rotate-left"></i> Log Another Weekly Check-In
+                    </button>
+                </div>
+            </div>
+
+            <footer>
+                <p>&copy; 2026 Fitwithmanpreett. All Rights Reserved.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYRPT6U2Z3Cm2gRRwGys0DlrAGbXCU1IYnXiGML-RP7zQNwstlPMgQu2gCvypgz7_2_A/exec';
+
+        // Tricolor Ambient Particles
+        const pCanvas = document.getElementById("particles-js");
+        const pCtx = pCanvas.getContext("2d");
+        pCanvas.width = window.innerWidth;
+        pCanvas.height = window.innerHeight;
+        const tricolorDots = ['rgba(255, 103, 31, 0.35)', 'rgba(248, 250, 252, 0.25)', 'rgba(4, 106, 56, 0.45)'];
+        const dots = [];
+        for (let i = 0; i < 18; i++) {
+            dots.push({
+                x: Math.random() * pCanvas.width,
+                y: Math.random() * pCanvas.height,
+                vx: (Math.random() - 0.5) * 0.28,
+                vy: (Math.random() - 0.5) * 0.28,
+                r: Math.random() * 1.7 + 0.6,
+                color: tricolorDots[i % tricolorDots.length]
+            });
+        }
+        function renderDots() {
+            pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+            dots.forEach(d => {
+                d.x += d.vx; d.y += d.vy;
+                if (d.x < 0 || d.x > pCanvas.width) d.x = Math.random() * pCanvas.width;
+                if (d.y < 0 || d.y > pCanvas.height) d.y = Math.random() * pCanvas.height;
+                pCtx.fillStyle = d.color;
+                pCtx.beginPath();
+                pCtx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+                pCtx.fill();
+            });
+            requestAnimationFrame(renderDots);
+        }
+        renderDots();
+
+        // Confetti on Completion
+        const cCanvas = document.getElementById('confetti');
+        const cCtx = cCanvas.getContext('2d');
+        cCanvas.width = window.innerWidth;
+        cCanvas.height = window.innerHeight;
+        let pieces = [];
+        const palette = ['#FF671F', '#F8FAFC', '#046A38', '#00FF6A'];
+
+        function triggerConfetti() {
+            pieces = [];
+            for (let i = 0; i < 75; i++) {
+                pieces.push({
+                    x: Math.random() * cCanvas.width,
+                    y: Math.random() * cCanvas.height - cCanvas.height,
+                    color: palette[Math.floor(Math.random() * palette.length)],
+                    w: Math.random() * 6 + 3,
+                    h: Math.random() * 6 + 3,
+                    vy: Math.random() * 3.5 + 2,
+                    rot: Math.random() * 360
+                });
+            }
+            stepConfetti();
+        }
+
+        function stepConfetti() {
+            cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+            pieces.forEach((p, i) => {
+                p.y += p.vy;
+                p.rot += 2.5;
+                cCtx.save();
+                cCtx.translate(p.x, p.y);
+                cCtx.rotate(p.rot * Math.PI / 180);
+                cCtx.fillStyle = p.color;
+                cCtx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                cCtx.restore();
+                if (p.y > cCanvas.height) pieces.splice(i, 1);
+            });
+            if (pieces.length > 0) requestAnimationFrame(stepConfetti);
+        }
+
+        window.addEventListener('resize', () => {
+            pCanvas.width = window.innerWidth;
+            pCanvas.height = window.innerHeight;
+            cCanvas.width = window.innerWidth;
+            cCanvas.height = window.innerHeight;
+        });
+
+        // Form Elements
+        const form = document.getElementById('weeklyTrackerForm');
+        const formSectionWrapper = document.getElementById('formSectionWrapper');
+        const analysisReport = document.getElementById('analysisReport');
+        const submitDirectBtn = document.getElementById('submitDirectBtn');
+        const newCheckinBtn = document.getElementById('newCheckinBtn');
+        const syncStatusIndicator = document.getElementById('syncStatusIndicator');
+
+        const fullNameInput = document.getElementById('fullNameInput');
+        const heightInput = document.getElementById('heightInput');
+        const countryCodeSelect = document.getElementById('countryCodeSelect');
+        const customCodeWrapper = document.getElementById('customCodeWrapper');
+        const customCountryCodeInput = document.getElementById('customCountryCodeInput');
+        const phoneNumberInput = document.getElementById('phoneNumberInput');
+        const whatsappFullInput = document.getElementById('whatsappFullInput');
+        const goalWeightInput = document.getElementById('goalWeightInput');
+
+        const startingWeightInput = document.getElementById('startingWeightInput');
+        const currentWeightInput = document.getElementById('currentWeightInput');
+        const waistInput = document.getElementById('waistInput');
+        const bodyChangesInput = document.getElementById('bodyChangesInput');
+        const energyLevelInput = document.getElementById('energyLevelInput');
+        const hungerControlInput = document.getElementById('hungerControlInput');
+        const digestionInput = document.getElementById('digestionInput');
+        const dietConsistencyInput = document.getElementById('dietConsistencyInput');
+        const workoutDaysInput = document.getElementById('workoutDaysInput');
+        const dailyStepsInput = document.getElementById('dailyStepsInput');
+        const waterIntakeInput = document.getElementById('waterIntakeInput');
+        const overallImprovementInput = document.getElementById('overallImprovementInput');
+        const progressMediaInput = document.getElementById('progressMediaInput');
+        const filePreviewList = document.getElementById('filePreviewList');
+
+        const heightWarning = document.getElementById('heightWarning');
+        const phoneWarning = document.getElementById('phoneWarning');
+        const goalWeightWarning = document.getElementById('goalWeightWarning');
+        const weightWarning = document.getElementById('weightWarning');
+        const waistWarning = document.getElementById('waistWarning');
+        const stepsWarning = document.getElementById('stepsWarning');
+
+        const weightChangeHidden = document.getElementById('weightChangeHidden');
+        const bmiValueHidden = document.getElementById('bmiValueHidden');
+        const bmiCategoryHidden = document.getElementById('bmiCategoryHidden');
+        const fitTargetMessageHidden = document.getElementById('fitTargetMessageHidden');
+        const consistencyScoreHidden = document.getElementById('consistencyScoreHidden');
+        const uploadedMediaNamesHidden = document.getElementById('uploadedMediaNamesHidden');
+
+        progressMediaInput.addEventListener('change', () => {
+            const files = Array.from(progressMediaInput.files || []);
+            if (files.length === 0) {
+                filePreviewList.textContent = '';
+                uploadedMediaNamesHidden.value = '';
+                return;
+            }
+            const names = files.map(f => f.name);
+            uploadedMediaNamesHidden.value = names.join(', ');
+            filePreviewList.innerHTML = `<i class="fas fa-paperclip"></i> Selected (${files.length}): ${escapeHtml(names.join(', '))}`;
+        });
+
+        countryCodeSelect.addEventListener('change', () => {
+            if (countryCodeSelect.value === 'custom') {
+                customCodeWrapper.style.display = 'block';
+                customCountryCodeInput.focus();
+            } else {
+                customCodeWrapper.style.display = 'none';
+                customCountryCodeInput.value = '';
+            }
+            validatePhone();
+        });
+
+        function getCountryCode() {
+            let code = countryCodeSelect.value === 'custom'
+                ? customCountryCodeInput.value.trim()
+                : countryCodeSelect.value;
+            if (!code) return '';
+            code = code.replace(/[^\d+]/g, '');
+            if (!code.startsWith('+')) code = '+' + code;
+            return code;
+        }
+
+        function getPhoneDigits() {
+            return phoneNumberInput.value.replace(/\D/g, '').replace(/^0+/, '');
+        }
+
+        function validatePhone() {
+            const code = getCountryCode();
+            const digits = getPhoneDigits();
+            const repeated = /^(\d)\1+$/.test(digits);
+            const valid = /^\+\d{1,4}$/.test(code) && digits.length >= 6 && digits.length <= 15 && !repeated;
+            phoneWarning.style.display = valid ? 'none' : 'block';
+            const full = valid ? code + digits : '';
+            whatsappFullInput.value = full;
+            return { valid, full };
+        }
+
+        phoneNumberInput.addEventListener('input', validatePhone);
+        customCountryCodeInput.addEventListener('input', validatePhone);
+
+        function parseHeightCm(raw) {
+            const s = String(raw || '').trim().toLowerCase();
+            if (!s) return null;
+            const ftMatch = s.match(/(\d+)\s*(?:'|ft|feet)\s*(\d+(?:\.\d+)?)?\s*(?:"|in|inch|inches)?/);
+            if (ftMatch) {
+                const ft = parseFloat(ftMatch[1]);
+                const inch = ftMatch[2] ? parseFloat(ftMatch[2]) : 0;
+                const cm = ((ft * 12) + inch) * 2.54;
+                return (cm >= 100 && cm <= 250) ? cm : null;
+            }
+            const numMatch = s.match(/(\d+(?:\.\d+)?)/);
+            if (!numMatch) return null;
+            const cm = parseFloat(numMatch[1]);
+            return (cm >= 100 && cm <= 250) ? cm : null;
+        }
+
+        function parseDietPercent(val) {
+            const m = String(val || '').match(/(\d+)/);
+            return m ? parseFloat(m[1]) : 0;
+        }
+
+        function parseWorkoutDays(val) {
+            const m = String(val || '').match(/(\d+)/);
+            return m ? Math.min(7, Math.max(0, parseInt(m[1], 10))) : 0;
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function buildEvaluation() {
+            const name = fullNameInput.value.trim();
+            const phone = validatePhone();
+            const heightCm = parseHeightCm(heightInput.value);
+            const startWt = parseFloat(startingWeightInput.value);
+            const currWt = parseFloat(currentWeightInput.value);
+            const waistIn = parseFloat(waistInput.value);
+            const goalWtRaw = parseFloat(goalWeightInput.value);
+            const dietPct = parseDietPercent(dietConsistencyInput.value);
+            const workoutDays = parseWorkoutDays(workoutDaysInput.value);
+            const workoutDayPct = Math.round((workoutDays / 7) * 100);
+            const steps = Math.max(0, Math.round(parseFloat(dailyStepsInput.value) || 0));
+
+            const deltaWt = +(currWt - startWt).toFixed(1);
+            const deltaPct = startWt > 0 ? +((deltaWt / startWt) * 100).toFixed(1) : 0;
+
+            const heightM = heightCm / 100;
+            const bmi = +(currWt / (heightM * heightM)).toFixed(1);
+
+            let bmiStatus = 'Normal Range';
+            if (bmi < 18.5) bmiStatus = 'Below Normal';
+            else if (bmi < 25.0) bmiStatus = 'Normal Range';
+            else if (bmi < 30.0) bmiStatus = 'Elevated Range';
+            else bmiStatus = 'High Range';
+
+            const minHealthyWt = +(18.5 * heightM * heightM).toFixed(1);
+            const maxHealthyWt = +(24.9 * heightM * heightM).toFixed(1);
+
+            let targetWt;
+            if (!isNaN(goalWtRaw) && goalWtRaw >= 30 && goalWtRaw <= 550) {
+                targetWt = goalWtRaw;
+            } else if (currWt > maxHealthyWt) {
+                targetWt = maxHealthyWt;
+            } else if (currWt < minHealthyWt) {
+                targetWt = minHealthyWt;
+            } else {
+                targetWt = currWt;
+            }
+
+            const wtGap = +(currWt - targetWt).toFixed(1);
+            const absGap = Math.abs(wtGap).toFixed(1);
+
+            let verdictText = '';
+            let verdictSub = '';
+
+            if (wtGap > 0.2) {
+                const estWeeks = Math.max(1, Math.ceil(wtGap / 0.75));
+                verdictText = `You need to <strong>LOSE ${absGap} kg</strong> to stay fit and reach your target (${targetWt} kg).`;
+                verdictSub = `At a health-guided pace of ~0.5–0.8 kg/week, that is roughly ${estWeeks} week(s). Healthy normal BMI weight for your height is ${minHealthyWt}–${maxHealthyWt} kg.`;
+            } else if (wtGap < -0.2) {
+                const estWeeks = Math.max(1, Math.ceil(Math.abs(wtGap) / 0.4));
+                verdictText = `You need to <strong>GAIN ${absGap} kg</strong> to stay fit and reach your target (${targetWt} kg).`;
+                verdictSub = `At a steady lean-gain pace of ~0.25–0.5 kg/week, that is roughly ${estWeeks} week(s). Healthy normal BMI weight for your height is ${minHealthyWt}–${maxHealthyWt} kg.`;
+            } else {
+                verdictText = `You are at your <strong>FIT TARGET (${currWt} kg)</strong> — focus on steady maintenance, strength, and waist toning.`;
+                verdictSub = `Your weight sits within the normal BMI band (${minHealthyWt}–${maxHealthyWt} kg for your height).`;
+            }
+
+            const stepRatioScore = Math.min(100, Math.round((steps / 8000) * 100));
+            let recoveryPts = 0;
+            if (/Better/i.test(energyLevelInput.value)) recoveryPts += 5;
+            if (/90-100|70-89/i.test(hungerControlInput.value)) recoveryPts += 5;
+            if (/Improvement/i.test(digestionInput.value)) recoveryPts += 5;
+            if (/Yes|Mostly/i.test(waterIntakeInput.value)) recoveryPts += 5;
+
+            const weightedCore = (dietPct * 0.4) + (workoutDayPct * 0.35) + (stepRatioScore * 0.25);
+            const executionIndex = Math.min(100, Math.max(0, Math.round((weightedCore * 0.8) + recoveryPts)));
+
+            const notes = [];
+
+            if (deltaWt < 0) {
+                const paceNote = Math.abs(deltaWt) > 1.2
+                    ? 'Note: A drop above 1.2 kg in one week can include water or glycogen shifts—make sure protein, hydration, and food portions stay adequate.'
+                    : 'This sits within a sensible weekly pace when paired with consistent workouts.';
+                notes.push(`<strong>Weight &amp; Waist:</strong> Weight moved by <strong>${deltaWt} kg</strong> (${deltaPct}%) to <strong>${currWt} kg</strong>, with waist at <strong>${waistIn} inches</strong>. ${paceNote}`);
+            } else if (deltaWt > 0) {
+                notes.push(`<strong>Weight &amp; Waist:</strong> Weight shifted by <strong>+${deltaWt} kg</strong> (+${deltaPct}%) to <strong>${currWt} kg</strong>, with waist at <strong>${waistIn} inches</strong>. Check sodium, carb timing, digestion, and weekly calorie balance before changing targets.`);
+            } else {
+                notes.push(`<strong>Weight &amp; Waist:</strong> Scale weight is unchanged at <strong>${currWt} kg</strong>, and waist is <strong>${waistIn} inches</strong>. Plateaus are common in week-to-week tracking—review portion accuracy and daily step averages.`);
+            }
+
+            notes.push(`<strong>Body &amp; Win Feedback:</strong> Reported body changes: <em>"${escapeHtml(bodyChangesInput.value.trim())}"</em>. Best improvement this week: <em>"${escapeHtml(overallImprovementInput.value.trim())}"</em>.`);
+
+            notes.push(`<strong>Training, Steps &amp; Recovery:</strong> Completed workouts on <strong>${workoutDays} of 7 days</strong> this week with <strong>${steps.toLocaleString()}</strong> daily steps. Energy was <strong>${escapeHtml(energyLevelInput.value)}</strong>, hunger/cravings were <strong>${escapeHtml(hungerControlInput.value)}</strong>, and digestion was <strong>${escapeHtml(digestionInput.value)}</strong>.`);
+
+            const mediaFiles = Array.from(progressMediaInput.files || []);
+            if (mediaFiles.length > 0) {
+                notes.push(`<strong>Weight &amp; Progress Media:</strong> Attached <strong>${mediaFiles.length}</strong> file(s) (${escapeHtml(mediaFiles.map(f => f.name).join(', '))}) for visual and current-weight verification.`);
+            }
+
+            const habitTips = [];
+            if (dietPct < 80) habitTips.push('prep meals ahead to lift diet consistency above 80%');
+            if (workoutDays < 4) habitTips.push('schedule consistent training days across the week');
+            if (steps < 7000) habitTips.push('add short walks to build daily step volume');
+            if (/Low|Partially/i.test(waterIntakeInput.value)) habitTips.push('keep a measured bottle nearby to hit daily water goals');
+            if (/Low|Issue/i.test(energyLevelInput.value + ' ' + digestionInput.value)) habitTips.push('prioritize 7–8 hours of sleep and simple, well-tolerated meals');
+
+            if (habitTips.length > 0) {
+                notes.push(`<strong>Next 7-Day Priority:</strong> Focus on practical habits—specifically ${habitTips.join(', ')}.`);
+            } else {
+                notes.push(`<strong>Next 7-Day Priority:</strong> Your diet, training days, and recovery habits are steady—keep routines consistent and share current weight and progress pictures for side-by-side review.`);
+            }
+
+            return {
+                name,
+                whatsapp: phone.full,
+                heightCm,
+                startWt,
+                currWt,
+                waistIn,
+                deltaWt,
+                deltaPct,
+                bmi,
+                bmiStatus,
+                minHealthyWt,
+                maxHealthyWt,
+                targetWt,
+                verdictText,
+                verdictSub,
+                executionIndex,
+                dietPct,
+                workoutDays,
+                workoutDayPct,
+                stepRatioScore,
+                steps,
+                notes
+            };
+        }
+
+        function pushToGoogleSheet(evalData) {
+            const params = new URLSearchParams();
+            params.append('form_type', 'weekly_tracking');
+            params.append('name', evalData.name);
+            params.append('whatsapp_full', evalData.whatsapp);
+            params.append('country_code', getCountryCode());
+            params.append('phone_number', getPhoneDigits());
+            params.append('height', heightInput.value.trim());
+            params.append('goal_weight_kg', goalWeightInput.value.trim());
+            params.append('starting_weight_kg', String(evalData.startWt));
+            params.append('current_weight_kg', String(evalData.currWt));
+            params.append('weight_change_kg', `${evalData.deltaWt > 0 ? '+' : ''}${evalData.deltaWt} kg`);
+            params.append('bmi_value', String(evalData.bmi));
+            params.append('bmi_category', evalData.bmiStatus);
+            params.append('waist_inches', String(evalData.waistIn));
+            params.append('body_changes', bodyChangesInput.value.trim());
+            params.append('energy_level', energyLevelInput.value);
+            params.append('hunger_cravings', hungerControlInput.value);
+            params.append('digestion_status', digestionInput.value);
+            params.append('diet_consistency', dietConsistencyInput.value);
+            params.append('workout_days_this_week', workoutDaysInput.value);
+            params.append('daily_steps', String(evalData.steps));
+            params.append('water_intake', waterIntakeInput.value);
+            params.append('overall_improvement', overallImprovementInput.value.trim());
+            params.append('uploaded_media_names', uploadedMediaNamesHidden.value);
+            params.append('consistency_score', `${evalData.executionIndex}/100`);
+            params.append('fit_target_message', evalData.verdictText.replace(/<[^>]+>/g, ''));
+
+            // Fast non-blocking background fetch with keepalive
+            if (window.fetch) {
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    keepalive: true,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    },
+                    body: params.toString()
+                })
+                .then(() => {
+                    syncStatusIndicator.innerHTML = `<i class="fas fa-check-circle"></i> Logged (${escapeHtml(evalData.whatsapp)})`;
+                })
+                .catch(() => {
+                    // Fallback to hidden iframe POST if fetch fails
+                    form.submit();
+                    syncStatusIndicator.innerHTML = `<i class="fas fa-check-circle"></i> Logged (${escapeHtml(evalData.whatsapp)})`;
+                });
+            } else {
+                form.submit();
+                syncStatusIndicator.innerHTML = `<i class="fas fa-check-circle"></i> Logged (${escapeHtml(evalData.whatsapp)})`;
+            }
+        }
+
+        function renderEvaluationReport(d) {
+            document.getElementById('reportMemberName').innerText = `${d.name} — 7-Day Evaluation`;
+            document.getElementById('reportSummaryLine').innerText =
+                `Height ${d.heightCm.toFixed(1)} cm • Execution Index ${d.executionIndex}/100 • BMI ${d.bmi} (${d.bmiStatus})`;
+
+            document.getElementById('kpiCurrentWt').innerText = `${d.currWt} kg`;
+            document.getElementById('kpiStartWt').innerText = `Start: ${d.startWt} kg`;
+
+            const deltaNode = document.getElementById('kpiDeltaWt');
+            const sign = d.deltaWt > 0 ? '+' : '';
+            deltaNode.innerText = `${sign}${d.deltaWt} kg`;
+            deltaNode.style.color = d.deltaWt <= 0 ? 'var(--accent)' : 'var(--amber)';
+            document.getElementById('kpiDeltaPct').innerText = `${sign}${d.deltaPct}% in 7 days`;
+
+            document.getElementById('kpiBmi').innerText = d.bmi;
+            document.getElementById('kpiBmiStatus').innerText = d.bmiStatus;
+
+            document.getElementById('kpiWaistVal').innerText = `${d.waistIn} in`;
+            document.getElementById('kpiWorkoutDaysVal').innerText = `${d.workoutDays} days this week`;
+
+            document.getElementById('healthyRangeLabel').innerText =
+                `Normal BMI Wt: ${d.minHealthyWt}–${d.maxHealthyWt} kg`;
+
+            const pinPct = Math.min(96, Math.max(4, ((d.bmi - 14) / (38 - 14)) * 100));
+            document.getElementById('bmiPin').style.left = `${pinPct}%`;
+
+            document.getElementById('adherenceIndexText').innerText = `${d.executionIndex} / 100`;
+            document.getElementById('adherenceScoreFill').style.width = `${d.executionIndex}%`;
+
+            document.getElementById('dietStatLabel').innerText = `${d.dietPct}%`;
+            document.getElementById('dietStatFill').style.width = `${d.dietPct}%`;
+
+            document.getElementById('workoutStatLabel').innerText = `${d.workoutDays} / 7 days`;
+            document.getElementById('workoutStatFill').style.width = `${d.workoutDayPct}%`;
+
+            document.getElementById('stepsRawText').innerText = d.steps.toLocaleString();
+            document.getElementById('stepsStatLabel').innerText = `${d.stepRatioScore}%`;
+            document.getElementById('stepsStatFill').style.width = `${d.stepRatioScore}%`;
+
+            document.getElementById('coachingNotesList').innerHTML = d.notes
+                .map(n => `<li>${n}</li>`)
+                .join('');
+
+            document.getElementById('verdictHeadline').innerHTML = d.verdictText;
+            document.getElementById('verdictSubtext').innerText = d.verdictSub;
+
+            formSectionWrapper.style.display = 'none';
+            analysisReport.style.display = 'block';
+            triggerConfetti();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        let isSubmitting = false;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (isSubmitting) return;
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const phone = validatePhone();
+            if (!phone.valid) {
+                phoneWarning.style.display = 'block';
+                phoneNumberInput.focus();
+                return;
+            }
+
+            const hCm = parseHeightCm(heightInput.value);
+            if (!hCm) {
+                heightWarning.style.display = 'block';
+                heightInput.focus();
+                return;
+            }
+            heightWarning.style.display = 'none';
+
+            if (goalWeightInput.value.trim() !== '') {
+                const gw = parseFloat(goalWeightInput.value);
+                if (isNaN(gw) || gw < 30 || gw > 550) {
+                    goalWeightWarning.style.display = 'block';
+                    goalWeightInput.focus();
+                    return;
+                }
+            }
+            goalWeightWarning.style.display = 'none';
+
+            const sw = parseFloat(startingWeightInput.value);
+            const cw = parseFloat(currentWeightInput.value);
+            if (isNaN(sw) || sw < 30 || sw > 550 || isNaN(cw) || cw < 30 || cw > 550) {
+                weightWarning.style.display = 'block';
+                currentWeightInput.focus();
+                return;
+            }
+            weightWarning.style.display = 'none';
+
+            const wIn = parseFloat(waistInput.value);
+            if (isNaN(wIn) || wIn < 15 || wIn > 100) {
+                waistWarning.style.display = 'block';
+                waistInput.focus();
+                return;
+            }
+            waistWarning.style.display = 'none';
+
+            const stVal = parseFloat(dailyStepsInput.value);
+            if (isNaN(stVal) || stVal < 0) {
+                stepsWarning.style.display = 'block';
+                dailyStepsInput.focus();
+                return;
+            }
+            stepsWarning.style.display = 'none';
+
+            isSubmitting = true;
+            submitDirectBtn.disabled = true;
+            submitDirectBtn.innerHTML = 'Generating Report...';
+
+            const evalData = buildEvaluation();
+            weightChangeHidden.value = `${evalData.deltaWt > 0 ? '+' : ''}${evalData.deltaWt} kg`;
+            bmiValueHidden.value = evalData.bmi;
+            bmiCategoryHidden.value = evalData.bmiStatus;
+            consistencyScoreHidden.value = `${evalData.executionIndex}/100`;
+            fitTargetMessageHidden.value = evalData.verdictText.replace(/<[^>]+>/g, '');
+
+            syncStatusIndicator.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Saving to Sheet...`;
+
+            // Fire background sheet request & show report immediately
+            pushToGoogleSheet(evalData);
+            renderEvaluationReport(evalData);
+        });
+
+        newCheckinBtn.addEventListener('click', () => {
+            isSubmitting = false;
+            submitDirectBtn.disabled = false;
+            submitDirectBtn.innerHTML = 'Submit &amp; Generate Report <i class="fas fa-arrow-right"></i>';
+            form.reset();
+            customCodeWrapper.style.display = 'none';
+            whatsappFullInput.value = '';
+            uploadedMediaNamesHidden.value = '';
+            filePreviewList.textContent = '';
+            analysisReport.style.display = 'none';
+            formSectionWrapper.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
