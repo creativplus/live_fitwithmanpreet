@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>7-Day Progress Check | Fitwithmanpreett</title>
 
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="fit-with-manpreet-favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -26,6 +29,7 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
     /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <style>
         :root {
@@ -1370,8 +1374,9 @@
             consistencyScoreHidden.value = `${evalData.executionIndex}/100`;
             fitTargetMessageHidden.value = evalData.verdictText.replace(/<[^>]+>/g, '');
 
-            const encodedFiles = await readSelectedFilesAsBase64(progressMediaInput.files);
-            mediaFilesJsonHidden.value = encodedFiles.length > 0 ? JSON.stringify(encodedFiles) : '';
+            if (mediaFilesJsonHidden) {
+                mediaFilesJsonHidden.value = '';
+            }
 
             lastSubmittedWhatsapp = evalData.whatsapp;
             awaitingIframeLoad = true;
@@ -1387,7 +1392,27 @@
                     awaitingIframeLoad = false;
                     syncStatusIndicator.innerHTML = `<i class="fas fa-check-circle"></i> Sent (${escapeHtml(evalData.whatsapp)})`;
                 }
-            }, 4000);
+            }, 3500);
+
+            const encodedFiles = await readSelectedFilesAsBase64(progressMediaInput.files);
+            for (let i = 0; i < encodedFiles.length; i++) {
+                try {
+                    await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify({
+                            form_type: 'weekly_tracking_media',
+                            name: evalData.name,
+                            whatsapp_full: evalData.whatsapp,
+                            uploaded_media_names: encodedFiles[i].name,
+                            media_files_json: [encodedFiles[i]]
+                        })
+                    });
+                } catch (err) {
+                    // Ignore opaque no-cors response errors
+                }
+            }
         }
 
         function renderEvaluationReport(d) {
